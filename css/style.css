@@ -636,6 +636,7 @@ body._lock-scroll {
 }
 
 .header-location__btn {
+  padding: 10px;
   background-color: transparent;
   white-space: nowrap;
 }
@@ -802,6 +803,8 @@ body._lock-scroll {
 }
 
 .header-phone__btn {
+  padding: 10px;
+  overflow: hidden;
   background-color: transparent;
   white-space: nowrap;
 }
@@ -970,6 +973,41 @@ body._lock-scroll {
   .header-menu__item:not(:last-child) {
     margin-right: calc(10px + 10 * ((100vw - 320px) / 1250));
   }
+}
+
+.header-main__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-main__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-main__user-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-catalog__menu {
+  display: none;
+  position: absolute;
 }
 
 .page {
