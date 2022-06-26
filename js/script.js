@@ -300,32 +300,56 @@ window.onload = function actionsHeader() {
 
 
 	function catalogShow() {
-		const catalogContent = document.querySelector(".header-catalog-menu__list");
-		const catalogWrapper = document.querySelector(".header-catalog-menu__wrapper");
 		const catalogBtn = document.querySelector(".header-catalog__btn");
-		const body = document.body;
 
-		if (catalogContent && catalogBtn) {
+		if (catalogBtn) {
+			const catalogBody = document.querySelector(".header-catalog-menu__body");
+			const catalogWrapper = document.querySelector(".header-catalog-menu__wrapper");
+
 			catalogBtn.addEventListener("click", function () {
 				catalogWrapper.classList.toggle("_active");
-				catalogContent.classList.toggle("_active");
+				catalogBody.classList.toggle("_active");
 				catalogBtn.classList.toggle("_active");
-				// body.classList.toggle("_lock-scroll");
 			});
 
-			catalogWrapper.addEventListener("click", function () {
-				catalogWrapper.classList.remove("_active");
-				catalogContent.classList.remove("_active");
-				catalogBtn.classList.remove("_active");
-				// body.classList.remove("_lock-scroll");
-			});
+			const subCatalogShow = function () {
+				const catalogSubItems = document.querySelectorAll(".header-catalog-menu-main__item");
+				const catalogSubLists = document.querySelectorAll(".header-catalog-menu-sub__item");
+				let catalogName;
+
+				if (catalogSubItems.length > 0) {
+					catalogSubItems.forEach(catalogSubItem => {
+						catalogSubItem.addEventListener("mouseover", function () {
+
+							catalogSubItems.forEach(catalogSubItem => {
+								catalogSubItem.classList.remove("_active");
+							});
+							this.classList.add("_active");
+							catalogName = this.getAttribute('data-catalog');
+
+							function selectSubCatalog(catalogName) {
+								catalogSubLists.forEach(catalogSubList => {
+									if (catalogSubList.classList.contains(catalogName)) {
+										catalogSubList.classList.add("_active");
+									} else {
+										catalogSubList.classList.remove("_active");
+									}
+								});
+							}
+							selectSubCatalog(catalogName)
+						});
+					});
+				}
+			}
+			subCatalogShow()
+
 
 			document.addEventListener("click", function (e) {
 				const elementTarget = e.target;
 
-				if (!elementTarget.closest(".header-catalog")) {
+				if (!elementTarget.closest(".header-catalog") || elementTarget.closest(".header-catalog-menu__wrapper")) {
 					catalogWrapper.classList.remove("_active");
-					catalogContent.classList.remove("_active");
+					catalogBody.classList.remove("_active");
 					catalogBtn.classList.remove("_active");
 				}
 			});
