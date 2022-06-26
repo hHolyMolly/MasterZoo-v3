@@ -274,24 +274,63 @@ popupShow(); // ПОПАПЫ
 
 //< " СКРИПТЫ " >=============================================================================================================>//
 
-function phoneDropdown() {
-	const phoneArrows = document.querySelectorAll(".header-tel-dropdown__arrow");
+window.onload = function actionsHeader() {
 
-	if (phoneArrows.length > 0) {
-		phoneArrows.forEach(phoneArrow => {
+	function phoneDropdown() {
+		const phoneArrows = document.querySelectorAll(".header-tel-dropdown__arrow");
 
-			phoneArrow.addEventListener("click", function () {
-				phoneArrow.parentElement.classList.toggle("_active");
+		if (phoneArrows.length > 0) {
+			phoneArrows.forEach(phoneArrow => {
+
+				phoneArrow.addEventListener("click", function () {
+					phoneArrow.parentElement.classList.toggle("_active");
+				});
+
+				document.addEventListener("click", function (e) {
+					const elementTarget = e.target;
+
+					if (!elementTarget.closest(".header-tel-dropdown")) {
+						phoneArrow.parentElement.classList.remove("_active");
+					}
+				});
+			});
+		}
+	}
+	phoneDropdown()
+
+
+	function catalogShow() {
+		const catalogContent = document.querySelector(".header-catalog-menu__list");
+		const catalogWrapper = document.querySelector(".header-catalog-menu__wrapper");
+		const catalogBtn = document.querySelector(".header-catalog__btn");
+		const body = document.body;
+
+		if (catalogContent && catalogBtn) {
+			catalogBtn.addEventListener("click", function () {
+				catalogWrapper.classList.toggle("_active");
+				catalogContent.classList.toggle("_active");
+				catalogBtn.classList.toggle("_active");
+				// body.classList.toggle("_lock-scroll");
+			});
+
+			catalogWrapper.addEventListener("click", function () {
+				catalogWrapper.classList.remove("_active");
+				catalogContent.classList.remove("_active");
+				catalogBtn.classList.remove("_active");
+				// body.classList.remove("_lock-scroll");
 			});
 
 			document.addEventListener("click", function (e) {
 				const elementTarget = e.target;
 
-				if (!elementTarget.closest(".header-tel-dropdown")) {
-					phoneArrow.parentElement.classList.remove("_active");
+				if (!elementTarget.closest(".header-catalog")) {
+					catalogWrapper.classList.remove("_active");
+					catalogContent.classList.remove("_active");
+					catalogBtn.classList.remove("_active");
 				}
 			});
-		});
+		}
 	}
+	catalogShow()
+
 }
-phoneDropdown()
