@@ -1,148 +1,148 @@
 //< " ПОДКЛЮЧЕНИЕ JS КОМПОНЕНТОВ " >=============================================================================================================>//
-// function dynamicAdaptive() {
-// 	function DynamicAdapt(type) {
-// 		this.type = type;
-// 	}
+function dynamicAdaptive() {
+	function DynamicAdapt(type) {
+		this.type = type;
+	}
 
-// 	DynamicAdapt.prototype.init = function () {
-// 		const _this = this;
-// 		this.оbjects = [];
-// 		this.daClassname = "_dynamic_adapt_";
-// 		this.nodes = document.querySelectorAll("[data-da]");
+	DynamicAdapt.prototype.init = function () {
+		const _this = this;
+		this.оbjects = [];
+		this.daClassname = "_dynamic_adapt_";
+		this.nodes = document.querySelectorAll("[data-da]");
 
-// 		for (let i = 0; i < this.nodes.length; i++) {
-// 			const node = this.nodes[i];
-// 			const data = node.dataset.da.trim();
-// 			const dataArray = data.split(",");
-// 			const оbject = {};
-// 			оbject.element = node;
-// 			оbject.parent = node.parentNode;
-// 			оbject.destination = document.querySelector(dataArray[0].trim());
-// 			оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
-// 			оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
-// 			оbject.index = this.indexInParent(оbject.parent, оbject.element);
-// 			this.оbjects.push(оbject);
-// 		}
+		for (let i = 0; i < this.nodes.length; i++) {
+			const node = this.nodes[i];
+			const data = node.dataset.da.trim();
+			const dataArray = data.split(",");
+			const оbject = {};
+			оbject.element = node;
+			оbject.parent = node.parentNode;
+			оbject.destination = document.querySelector(dataArray[0].trim());
+			оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+			оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+			оbject.index = this.indexInParent(оbject.parent, оbject.element);
+			this.оbjects.push(оbject);
+		}
 
-// 		this.arraySort(this.оbjects);
+		this.arraySort(this.оbjects);
 
-// 		this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
-// 			return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
-// 		}, this);
-// 		this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
-// 			return Array.prototype.indexOf.call(self, item) === index;
-// 		});
+		this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
+			return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
+		}, this);
+		this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
+			return Array.prototype.indexOf.call(self, item) === index;
+		});
 
-// 		for (let i = 0; i < this.mediaQueries.length; i++) {
-// 			const media = this.mediaQueries[i];
-// 			const mediaSplit = String.prototype.split.call(media, ',');
-// 			const matchMedia = window.matchMedia(mediaSplit[0]);
-// 			const mediaBreakpoint = mediaSplit[1];
+		for (let i = 0; i < this.mediaQueries.length; i++) {
+			const media = this.mediaQueries[i];
+			const mediaSplit = String.prototype.split.call(media, ',');
+			const matchMedia = window.matchMedia(mediaSplit[0]);
+			const mediaBreakpoint = mediaSplit[1];
 
-// 			const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
-// 				return item.breakpoint === mediaBreakpoint;
-// 			});
-// 			matchMedia.addListener(function () {
-// 				_this.mediaHandler(matchMedia, оbjectsFilter);
-// 			});
-// 			this.mediaHandler(matchMedia, оbjectsFilter);
-// 		}
-// 	};
+			const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
+				return item.breakpoint === mediaBreakpoint;
+			});
+			matchMedia.addListener(function () {
+				_this.mediaHandler(matchMedia, оbjectsFilter);
+			});
+			this.mediaHandler(matchMedia, оbjectsFilter);
+		}
+	};
 
-// 	DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
-// 		if (matchMedia.matches) {
-// 			for (let i = 0; i < оbjects.length; i++) {
-// 				const оbject = оbjects[i];
-// 				оbject.index = this.indexInParent(оbject.parent, оbject.element);
-// 				this.moveTo(оbject.place, оbject.element, оbject.destination);
-// 			}
-// 		} else {
-// 			for (let i = 0; i < оbjects.length; i++) {
-// 				const оbject = оbjects[i];
-// 				if (оbject.element.classList.contains(this.daClassname)) {
-// 					this.moveBack(оbject.parent, оbject.element, оbject.index);
-// 				}
-// 			}
-// 		}
-// 	};
+	DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
+		if (matchMedia.matches) {
+			for (let i = 0; i < оbjects.length; i++) {
+				const оbject = оbjects[i];
+				оbject.index = this.indexInParent(оbject.parent, оbject.element);
+				this.moveTo(оbject.place, оbject.element, оbject.destination);
+			}
+		} else {
+			for (let i = 0; i < оbjects.length; i++) {
+				const оbject = оbjects[i];
+				if (оbject.element.classList.contains(this.daClassname)) {
+					this.moveBack(оbject.parent, оbject.element, оbject.index);
+				}
+			}
+		}
+	};
 
-// 	DynamicAdapt.prototype.moveTo = function (place, element, destination) {
-// 		element.classList.add(this.daClassname);
-// 		if (place === 'last' || place >= destination.children.length) {
-// 			destination.insertAdjacentElement('beforeend', element);
-// 			return;
-// 		}
-// 		if (place === 'first') {
-// 			destination.insertAdjacentElement('afterbegin', element);
-// 			return;
-// 		}
-// 		destination.children[place].insertAdjacentElement('beforebegin', element);
-// 	}
+	DynamicAdapt.prototype.moveTo = function (place, element, destination) {
+		element.classList.add(this.daClassname);
+		if (place === 'last' || place >= destination.children.length) {
+			destination.insertAdjacentElement('beforeend', element);
+			return;
+		}
+		if (place === 'first') {
+			destination.insertAdjacentElement('afterbegin', element);
+			return;
+		}
+		destination.children[place].insertAdjacentElement('beforebegin', element);
+	}
 
-// 	DynamicAdapt.prototype.moveBack = function (parent, element, index) {
-// 		element.classList.remove(this.daClassname);
-// 		if (parent.children[index] !== undefined) {
-// 			parent.children[index].insertAdjacentElement('beforebegin', element);
-// 		} else {
-// 			parent.insertAdjacentElement('beforeend', element);
-// 		}
-// 	}
+	DynamicAdapt.prototype.moveBack = function (parent, element, index) {
+		element.classList.remove(this.daClassname);
+		if (parent.children[index] !== undefined) {
+			parent.children[index].insertAdjacentElement('beforebegin', element);
+		} else {
+			parent.insertAdjacentElement('beforeend', element);
+		}
+	}
 
-// 	DynamicAdapt.prototype.indexInParent = function (parent, element) {
-// 		const array = Array.prototype.slice.call(parent.children);
-// 		return Array.prototype.indexOf.call(array, element);
-// 	};
+	DynamicAdapt.prototype.indexInParent = function (parent, element) {
+		const array = Array.prototype.slice.call(parent.children);
+		return Array.prototype.indexOf.call(array, element);
+	};
 
-// 	DynamicAdapt.prototype.arraySort = function (arr) {
-// 		if (this.type === "min") {
-// 			Array.prototype.sort.call(arr, function (a, b) {
-// 				if (a.breakpoint === b.breakpoint) {
-// 					if (a.place === b.place) {
-// 						return 0;
-// 					}
+	DynamicAdapt.prototype.arraySort = function (arr) {
+		if (this.type === "min") {
+			Array.prototype.sort.call(arr, function (a, b) {
+				if (a.breakpoint === b.breakpoint) {
+					if (a.place === b.place) {
+						return 0;
+					}
 
-// 					if (a.place === "first" || b.place === "last") {
-// 						return -1;
-// 					}
+					if (a.place === "first" || b.place === "last") {
+						return -1;
+					}
 
-// 					if (a.place === "last" || b.place === "first") {
-// 						return 1;
-// 					}
+					if (a.place === "last" || b.place === "first") {
+						return 1;
+					}
 
-// 					return a.place - b.place;
-// 				}
+					return a.place - b.place;
+				}
 
-// 				return a.breakpoint - b.breakpoint;
-// 			});
-// 		} else {
-// 			Array.prototype.sort.call(arr, function (a, b) {
-// 				if (a.breakpoint === b.breakpoint) {
-// 					if (a.place === b.place) {
-// 						return 0;
-// 					}
+				return a.breakpoint - b.breakpoint;
+			});
+		} else {
+			Array.prototype.sort.call(arr, function (a, b) {
+				if (a.breakpoint === b.breakpoint) {
+					if (a.place === b.place) {
+						return 0;
+					}
 
-// 					if (a.place === "first" || b.place === "last") {
-// 						return 1;
-// 					}
+					if (a.place === "first" || b.place === "last") {
+						return 1;
+					}
 
-// 					if (a.place === "last" || b.place === "first") {
-// 						return -1;
-// 					}
+					if (a.place === "last" || b.place === "first") {
+						return -1;
+					}
 
-// 					return b.place - a.place;
-// 				}
+					return b.place - a.place;
+				}
 
-// 				return b.breakpoint - a.breakpoint;
-// 			});
-// 			return;
-// 		}
-// 	};
+				return b.breakpoint - a.breakpoint;
+			});
+			return;
+		}
+	};
 
-// 	const da = new DynamicAdapt("max");
-// 	da.init();
+	const da = new DynamicAdapt("max");
+	da.init();
 
-// }
-// dynamicAdaptive(); // ДИНАМИЧЕСКИЙ АДАПТИВ
+}
+dynamicAdaptive(); // ДИНАМИЧЕСКИЙ АДАПТИВ
 
 // function scrollHeader() {
 // 	const header = document.querySelector('.header');
@@ -276,6 +276,34 @@ popupShow(); // ПОПАПЫ
 
 window.onload = function actionsHeader() {
 
+	function burgerShow() {
+		const burgerBtn = document.querySelector(".header-menu__burger");
+		const burgerBody = document.querySelector(".header-menu__body");
+		const burgerWrapper = document.querySelector(".header-menu__wrapper");
+		const body = document.body;
+
+		if (burgerBtn && burgerBody) {
+			burgerBtn.addEventListener("click", function () {
+				burgerBtn.classList.toggle("_active");
+				burgerBody.classList.toggle("_active");
+				body.classList.toggle("_lock-scroll");
+				burgerWrapper.classList.toggle("_active");
+			});
+
+			document.addEventListener("click", function (e) {
+				const elementTarget = e.target;
+
+				if (elementTarget.closest(".header-menu__wrapper")) {
+					burgerBtn.classList.remove("_active");
+					burgerBody.classList.remove("_active");
+					body.classList.remove("_lock-scroll");
+					burgerWrapper.classList.remove("_active");
+				}
+			});
+		}
+	}
+	burgerShow()
+
 	function phoneDropdown() {
 		const phoneArrows = document.querySelectorAll(".header-tel-dropdown__arrow");
 
@@ -298,9 +326,9 @@ window.onload = function actionsHeader() {
 	}
 	phoneDropdown()
 
-
 	function catalogShow() {
 		const catalogBtn = document.querySelector(".header-catalog__btn");
+		const body = document.body;
 
 		if (catalogBtn) {
 			const catalogBody = document.querySelector(".header-catalog-menu__body");
@@ -310,6 +338,7 @@ window.onload = function actionsHeader() {
 				catalogWrapper.classList.toggle("_active");
 				catalogBody.classList.toggle("_active");
 				catalogBtn.classList.toggle("_active");
+				body.classList.toggle("_lock-scroll");
 			});
 
 			const subCatalogShow = function () {
@@ -351,6 +380,7 @@ window.onload = function actionsHeader() {
 					catalogWrapper.classList.remove("_active");
 					catalogBody.classList.remove("_active");
 					catalogBtn.classList.remove("_active");
+					body.classList.toggle("_lock-scroll");
 				}
 			});
 		}
