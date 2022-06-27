@@ -617,6 +617,77 @@ body._lock-scroll {
   }
 }
 
+.header-top__burger {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+}
+
+@media (min-width: 1252.2px) {
+  .header-top__burger {
+    display: none;
+  }
+}
+
+.header-top__burger span {
+  width: 30px;
+  height: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+  transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+  background-color: #004C93;
+}
+
+.header-top__burger span:before, .header-top__burger span:after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  -webkit-transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+  transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+  background-color: #004C93;
+}
+
+.header-top__burger span:before {
+  top: -9px;
+}
+
+.header-top__burger span:after {
+  top: 9px;
+}
+
+.header-top__burger._active span {
+  background-color: transparent;
+}
+
+.header-top__burger._active span:before {
+  top: -8px;
+  -webkit-transform: rotate(45deg) translate(5px, 6px);
+          transform: rotate(45deg) translate(5px, 6px);
+}
+
+.header-top__burger._active span:after {
+  top: 8px;
+  -webkit-transform: rotate(-45deg) translate(5px, -6px);
+          transform: rotate(-45deg) translate(5px, -6px);
+}
+
 .header-top__logo {
   margin-right: 15px;
   -webkit-box-ordinal-group: 2;
@@ -849,77 +920,6 @@ body._lock-scroll {
     -webkit-transition: color .2s ease .0s;
     transition: color .2s ease .0s;
   }
-}
-
-.header-menu__burger {
-  width: 40px;
-  height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: transparent;
-}
-
-@media (min-width: 1252.2px) {
-  .header-menu__burger {
-    display: none;
-  }
-}
-
-.header-menu__burger span {
-  width: 30px;
-  height: 2px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
-  transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
-  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
-  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
-  background-color: #004C93;
-}
-
-.header-menu__burger span:before, .header-menu__burger span:after {
-  content: "";
-  width: 30px;
-  height: 2px;
-  position: absolute;
-  -webkit-transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
-  transition: top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
-  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
-  transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
-  background-color: #004C93;
-}
-
-.header-menu__burger span:before {
-  top: -9px;
-}
-
-.header-menu__burger span:after {
-  top: 9px;
-}
-
-.header-menu__burger._active span {
-  background-color: transparent;
-}
-
-.header-menu__burger._active span:before {
-  top: -8px;
-  -webkit-transform: rotate(45deg) translate(5px, 6px);
-          transform: rotate(45deg) translate(5px, 6px);
-}
-
-.header-menu__burger._active span:after {
-  top: 8px;
-  -webkit-transform: rotate(-45deg) translate(5px, -6px);
-          transform: rotate(-45deg) translate(5px, -6px);
 }
 
 @media (max-width: 1252.2px) {
@@ -1579,12 +1579,6 @@ body._lock-scroll {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.header-catalog-menu-sub__row {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 25%;
-          flex: 0 1 25%;
 }
 
 .header-catalog-menu-sub__row:not(:last-child) {

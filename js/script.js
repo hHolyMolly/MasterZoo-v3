@@ -248,21 +248,24 @@ function spoiler() {
 spoiler(); // СПОЙЛЕРЫ
 
 const popupShow = function () {
-
 	const popups = document.querySelectorAll("[data-popup]");
 
 	if (popups.length > 0) {
 		popups.forEach(popup => {
-
 			popup.addEventListener("click", function (e) {
 				const elementTarget = e.target;
 
 				if (elementTarget.closest(".popup__open")) {
-
 					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.add("_active");
 				}
 
 				if (elementTarget.closest(".popup__close") || elementTarget.classList.contains("_active") && !elementTarget.closest(".popup__body")) {
+					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.remove("_active");
+				}
+			});
+
+			popup.addEventListener("keyup", function (e) {
+				if (e.code === "Escape" && window.innerWidth > 768.2) {
 					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.remove("_active");
 				}
 			});
@@ -277,14 +280,13 @@ popupShow(); // ПОПАПЫ
 window.onload = function actionsHeader() {
 
 	function burgerShow() {
-		const burgerBtn = document.querySelector(".header-menu__burger");
+		const burgerBtn = document.querySelector(".header-top__burger");
 		const burgerBody = document.querySelector(".header-menu__body");
 		const burgerWrapper = document.querySelector(".header-menu__wrapper");
 		const body = document.body;
 
 		if (burgerBtn && burgerBody) {
 			burgerBtn.addEventListener("click", function () {
-				burgerBtn.classList.toggle("_active");
 				burgerBody.classList.toggle("_active");
 				body.classList.toggle("_lock-scroll");
 				burgerWrapper.classList.toggle("_active");
@@ -294,7 +296,14 @@ window.onload = function actionsHeader() {
 				const elementTarget = e.target;
 
 				if (elementTarget.closest(".header-menu__wrapper")) {
-					burgerBtn.classList.remove("_active");
+					burgerBody.classList.remove("_active");
+					body.classList.remove("_lock-scroll");
+					burgerWrapper.classList.remove("_active");
+				}
+			});
+
+			document.addEventListener("keyup", function (e) {
+				if (e.code === "Escape" && window.innerWidth > 768.2) {
 					burgerBody.classList.remove("_active");
 					body.classList.remove("_lock-scroll");
 					burgerWrapper.classList.remove("_active");
@@ -328,7 +337,6 @@ window.onload = function actionsHeader() {
 
 	function catalogShow() {
 		const catalogBtn = document.querySelector(".header-catalog__btn");
-		const body = document.body;
 
 		if (catalogBtn) {
 			const catalogBody = document.querySelector(".header-catalog-menu__body");
@@ -338,7 +346,6 @@ window.onload = function actionsHeader() {
 				catalogWrapper.classList.toggle("_active");
 				catalogBody.classList.toggle("_active");
 				catalogBtn.classList.toggle("_active");
-				body.classList.toggle("_lock-scroll");
 			});
 
 			const subCatalogShow = function () {
@@ -380,7 +387,6 @@ window.onload = function actionsHeader() {
 					catalogWrapper.classList.remove("_active");
 					catalogBody.classList.remove("_active");
 					catalogBtn.classList.remove("_active");
-					body.classList.toggle("_lock-scroll");
 				}
 			});
 		}
