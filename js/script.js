@@ -263,15 +263,8 @@ const popupShow = function () {
 					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.remove("_active");
 				}
 			});
-
-			popup.addEventListener("keyup", function (e) {
-				if (e.code === "Escape" && window.innerWidth > 768.2) {
-					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.remove("_active");
-				}
-			});
 		});
 	}
-
 }
 popupShow(); // ПОПАПЫ
 
@@ -280,7 +273,7 @@ popupShow(); // ПОПАПЫ
 window.onload = function actionsHeader() {
 
 	function burgerShow() {
-		const burgerBtn = document.querySelector(".header-top__burger");
+		const burgerBtn = document.querySelector(".header-menu__burger");
 		const burgerBody = document.querySelector(".header-menu__body");
 		const burgerWrapper = document.querySelector(".header-menu__wrapper");
 		const body = document.body;
