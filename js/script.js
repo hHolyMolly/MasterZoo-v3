@@ -249,6 +249,7 @@ spoiler(); // СПОЙЛЕРЫ
 
 const popupShow = function () {
 	const popups = document.querySelectorAll("[data-popup]");
+	const body = document.body;
 
 	if (popups.length > 0) {
 		popups.forEach(popup => {
@@ -257,10 +258,12 @@ const popupShow = function () {
 
 				if (elementTarget.closest(".popup__open")) {
 					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.add("_active");
+					body.classList.add("_lock-scroll");
 				}
 
 				if (elementTarget.closest(".popup__close") || elementTarget.classList.contains("_active") && !elementTarget.closest(".popup__body")) {
 					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.remove("_active");
+					body.classList.remove("_lock-scroll");
 				}
 			});
 		});
@@ -288,7 +291,7 @@ window.onload = function actionsHeader() {
 			document.addEventListener("click", function (e) {
 				const elementTarget = e.target;
 
-				if (elementTarget.closest(".header-menu__wrapper")) {
+				if (elementTarget.closest(".header-menu__wrapper") || elementTarget.closest(".header-menu__close")) {
 					burgerBody.classList.remove("_active");
 					body.classList.remove("_lock-scroll");
 					burgerWrapper.classList.remove("_active");
@@ -330,6 +333,7 @@ window.onload = function actionsHeader() {
 
 	function catalogShow() {
 		const catalogBtn = document.querySelector(".header-catalog__btn");
+		const body = document.body;
 
 		if (catalogBtn) {
 			const catalogBody = document.querySelector(".header-catalog-menu__body");
@@ -339,6 +343,10 @@ window.onload = function actionsHeader() {
 				catalogWrapper.classList.toggle("_active");
 				catalogBody.classList.toggle("_active");
 				catalogBtn.classList.toggle("_active");
+
+				if (window.innerWidth < 768.2) {
+					body.classList.add("_lock-scroll");
+				}
 			});
 
 			const subCatalogShow = function () {
@@ -348,25 +356,48 @@ window.onload = function actionsHeader() {
 
 				if (catalogSubItems.length > 0) {
 					catalogSubItems.forEach(catalogSubItem => {
-						catalogSubItem.addEventListener("mouseover", function () {
 
-							catalogSubItems.forEach(catalogSubItem => {
-								catalogSubItem.classList.remove("_active");
-							});
-							this.classList.add("_active");
-							catalogName = this.getAttribute('data-catalog');
+						if (window.innerWidth > 768.2) {
+							catalogSubItem.addEventListener("mouseover", function () {
 
-							function selectSubCatalog(catalogName) {
-								catalogSubLists.forEach(catalogSubList => {
-									if (catalogSubList.classList.contains(catalogName)) {
-										catalogSubList.classList.add("_active");
-									} else {
-										catalogSubList.classList.remove("_active");
-									}
+								catalogSubItems.forEach(catalogSubItem => {
+									catalogSubItem.classList.remove("_active");
 								});
-							}
-							selectSubCatalog(catalogName)
-						});
+								this.classList.add("_active");
+								catalogName = this.getAttribute('data-catalog');
+
+								function selectSubCatalog(catalogName) {
+									catalogSubLists.forEach(catalogSubList => {
+										if (catalogSubList.classList.contains(catalogName)) {
+											catalogSubList.classList.add("_active");
+										} else {
+											catalogSubList.classList.remove("_active");
+										}
+									});
+								}
+								selectSubCatalog(catalogName)
+							});
+						} else {
+							catalogSubItem.addEventListener("click", function () {
+
+								catalogSubItems.forEach(catalogSubItem => {
+									catalogSubItem.classList.remove("_active");
+								});
+								this.classList.add("_active");
+								catalogName = this.getAttribute('data-catalog');
+
+								function selectSubCatalog(catalogName) {
+									catalogSubLists.forEach(catalogSubList => {
+										if (catalogSubList.classList.contains(catalogName)) {
+											catalogSubList.classList.add("_active");
+										} else {
+											catalogSubList.classList.remove("_active");
+										}
+									});
+								}
+								selectSubCatalog(catalogName)
+							});
+						}
 					});
 				}
 			}
@@ -376,10 +407,14 @@ window.onload = function actionsHeader() {
 			document.addEventListener("click", function (e) {
 				const elementTarget = e.target;
 
-				if (!elementTarget.closest(".header-catalog") || elementTarget.closest(".header-catalog-menu__wrapper")) {
+				if (!elementTarget.closest(".header-catalog") || elementTarget.closest(".header-catalog-menu__wrapper") || elementTarget.closest(".header-catalog-menu__close")) {
 					catalogWrapper.classList.remove("_active");
 					catalogBody.classList.remove("_active");
 					catalogBtn.classList.remove("_active");
+
+					if (window.innerWidth < 768.2) {
+						body.classList.remove("_lock-scroll");
+					}
 				}
 			});
 		}
