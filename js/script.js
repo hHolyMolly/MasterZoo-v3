@@ -224,7 +224,7 @@ scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛ
 	}
 
 };
-quantity() // СЧЁТЧИКИ /*
+quantity() // СЧЁТЧИКИ */
 
 /* function spoiler() {
 	const spoilers = document.querySelectorAll("[data-spoiler]");
@@ -293,3 +293,29 @@ let select = function () {
 select(); // ПОПАПЫ
 
 //< " СКРИПТЫ " >=============================================================================================================>//
+
+window.onload = function actionsHeader() {
+
+	function phoneShow() {
+		const phoneArrow = document.querySelector(".header-phone-dropdown__arrow");
+		const phoneBody = document.querySelector(".header-phone-dropdown__list");
+
+		if (phoneArrow && phoneBody) {
+			phoneArrow.addEventListener("click", function () {
+				phoneArrow.classList.toggle("_active");
+				phoneBody.classList.toggle("_active");
+			});
+
+			document.addEventListener("click", function (e) {
+				const elementTarget = e.target;
+
+				if (!elementTarget.closest(".header-phone-dropdown")) {
+					phoneArrow.classList.remove("_active");
+					phoneBody.classList.remove("_active");
+				}
+			});
+		}
+	}
+	phoneShow()
+}
+actionsHeader()

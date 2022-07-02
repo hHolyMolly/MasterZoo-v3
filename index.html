@@ -27,7 +27,7 @@
                         </a>
                      </div>
                      <div class="header-top__location header-location popup select" data-popup>
-                        <button class="header-location__btn popup__open">
+                        <button class="header-location__btn popup__open" type="button">
                            <i class="header-location__icon _icon-location"></i>
                            <div class="header-location__btn-text select__current">Москва</div>
                         </button>
@@ -37,20 +37,23 @@
                                  <div class="header-location-popup__title popup__title">
                                     ГОРОД ИЛИ РЕГИОН
                                  </div>
-                                 <button class="header-location-popup__close popup__close"><span></span></button>
+                                 <button
+                                    class="header-location-popup__close popup__close _btn-click"><span></span></button>
                               </div>
                               <div
                                  class="header-location-popup__content header-location-popup-content popup__content popup-content">
                                  <div
                                     class="header-location-popup-content__field header-location-popup-field popup-content__field popup-field">
                                     <form class="header-location-popup-field__form popup-field__form" action="#">
-                                       <input class="header-location-popup-field__input popup-field__input"
-                                          id="header-location-popup-field__input" type="text" placeholder="Поиск">
-                                       <label
-                                          class="header-location-popup-field__btn header-location-popup-field__btn_search popup-field__btn"
-                                          for="header-location-popup-field__input">
-                                          <img src="img/icon/search.svg" alt="icon-search">
-                                       </label>
+                                       <div class="header-location-popup-field__item popup-field__item">
+                                          <input class="header-location-popup-field__input popup-field__input"
+                                             id="header-location-popup-field__input" type="text" placeholder="Поиск">
+                                          <label
+                                             class="header-location-popup-field__btn header-location-popup-field__btn_search popup-field__btn"
+                                             for="header-location-popup-field__input">
+                                             <img src="img/icon/search.svg" alt="icon-search">
+                                          </label>
+                                       </div>
                                     </form>
                                  </div>
                                  <div class="header-location-popup-content__select header-location-popup-select">
@@ -94,6 +97,89 @@
                            </div>
                         </div>
                      </div>
+                     <div class="header-top__phone header-phone">
+                        <div class="header-phone__dropdown header-phone-dropdown">
+                           <a class="header-phone-dropdown__link" href="tel:84950183210">
+                              8 495 018-32-10
+                           </a>
+                           <div class="header-phone-dropdown__item">
+                              <button class="header-phone-dropdown__arrow _icon-arrow" type="button"></button>
+                              <div class="header-phone-dropdown__list">
+                                 <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
+                                    8 495 018-32-10
+                                 </a>
+                                 <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
+                                    8 495 018-32-10
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="header-phone__callback header-phone-callback popup" data-popup>
+                           <button class="header-phone-callback__btn popup__open" type="button">Заказать звонок</button>
+                           <div class="header-phone-callback__wrapper popup__wrapper">
+                              <div class="header-phone-callback__body popup__body">
+                                 <div class="header-phone-callback__top popup__top">
+                                    <div class="header-phone-callback__title popup__title">
+                                       ЗАКАЗ ЗВОНКА
+                                    </div>
+                                    <button
+                                       class="header-phone-callback__close popup__close _btn-click"><span></span></button>
+                                 </div>
+                                 <div
+                                    class="header-phone-callback__content header-phone-callback-content popup__content popup-content">
+                                    <div
+                                       class="header-phone-callback-content__field header-phone-callback-field popup-content__field">
+                                       <form class="header-phone-callback-field__form popup-field__form" action="#">
+                                          <div class="header-phone-callback-field__name popup-field__item">
+                                             <input class="header-phone-callback-field__input popup-field__input"
+                                                type="text" minlength="8" placeholder="Ваше имя">
+                                          </div>
+                                          <div class="header-phone-callback-field__tel popup-field__item">
+                                             <input class="header-phone-callback-field__input popup-field__input"
+                                                type="number" placeholder="Телефон">
+                                          </div>
+                                          <div class="header-phone-callback-field__time popup-field__item">
+                                             <input class="header-phone-callback-field__time popup-field__input"
+                                                type="text" placeholder="Удобное время для звонка">
+                                          </div>
+                                       </form>
+                                    </div>
+                                    <button class="header-phone-callback-content__send popup-content__btn _btn-click"
+                                       type="submit">
+                                       ОТПРАВИТЬ
+                                    </button>
+                                    <p class="header-phone-callback-content__text">
+                                       Нажимая кнопку «Отправиться»,
+                                       вы соглашаетесь с документом
+                                       <a class="link" href="#">политика конфиденциальности</a>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <nav class="header-top__menu header-menu">
+                        <button class="header-menu__burger"><span></span></button>
+                        <div class="header-menu__body">
+                           <ul class="header-menu__list">
+                              <li class="header-menu__item">
+                                 <a class="header-menu__link" href="#">Оплата</a>
+                              </li>
+                              <li class="header-menu__item">
+                                 <a class="header-menu__link" href="#">Доставка</a>
+                              </li>
+                              <li class="header-menu__item">
+                                 <a class="header-menu__link" href="#">Поставщикам</a>
+                              </li>
+                              <li class="header-menu__item">
+                                 <a class="header-menu__link" href="#">Статьи</a>
+                              </li>
+                              <li class="header-menu__item">
+                                 <a class="header-menu__link" href="#">Контакты</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </nav>
                   </div>
                </div>
             </div>
