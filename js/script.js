@@ -1,5 +1,5 @@
 //< " ПОДКЛЮЧЕНИЕ JS КОМПОНЕНТОВ " >=============================================================================================================>//
-/* function dynamicAdaptive() {
+function dynamicAdaptive() {
 	function DynamicAdapt(type) {
 		this.type = type;
 	}
@@ -142,10 +142,10 @@
 	da.init();
 
 }
-dynamicAdaptive() // ДИНАМИЧЕСКИЙ АДАПТИВ */
+dynamicAdaptive() // ДИНАМИЧЕСКИЙ АДАПТИВ
 
-/* function scrollHeader() {
-	const header = document.querySelector('.header');
+function scrollHeader() {
+	const header = document.querySelector('.header-top__wrapper');
 
 	const callback = function (entries, observer) {
 		if (entries[0].isIntersecting) {
@@ -158,7 +158,7 @@ dynamicAdaptive() // ДИНАМИЧЕСКИЙ АДАПТИВ */
 	const headerObserver = new IntersectionObserver(callback);
 	headerObserver.observe(header);
 }
-scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛЛЕ */
+scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛЛЕ
 
 /* new Swiper(".swiper", {
 	slidesPerView: 1, // Количество слайдеров
@@ -294,7 +294,7 @@ select(); // ПОПАПЫ
 
 //< " СКРИПТЫ " >=============================================================================================================>//
 
-window.onload = function actionsHeader() {
+function actionsHeader() {
 
 	function phoneShow() {
 		const phoneArrow = document.querySelector(".header-phone-dropdown__arrow");
@@ -317,5 +317,37 @@ window.onload = function actionsHeader() {
 		}
 	}
 	phoneShow()
+
+	function menuShow() {
+		const menuOpen = document.querySelector(".header-top__burger");
+
+		if (menuOpen) {
+			const menuWrapper = document.querySelector(".header-menu__wrapper");
+			const menuBody = document.querySelector(".header-menu__body");
+
+			menuOpen.addEventListener("click", function () {
+				menuWrapper.classList.add("_active");
+				menuBody.classList.add("_active");
+				document.body.classList.add("_lock-scroll");
+			});
+
+			document.addEventListener("click", function (e) {
+				const elementTarget = e.target;
+
+				if (elementTarget.closest(".header-menu__close") || elementTarget.closest(".header-menu__wrapper")) {
+					menuWrapper.classList.remove("_active");
+					menuBody.classList.remove("_active");
+					document.body.classList.remove("_lock-scroll");
+				}
+
+				if (elementTarget.closest(".popup__open")) {
+					menuWrapper.classList.remove("_active");
+					menuBody.classList.remove("_active");
+				}
+			});
+		}
+	}
+	menuShow()
+
 }
 actionsHeader()

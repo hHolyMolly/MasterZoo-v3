@@ -26,7 +26,8 @@
                            <img src="img/logo.svg" alt="header-logo">
                         </a>
                      </div>
-                     <div class="header-top__location header-location popup select" data-popup>
+                     <div class="header-top__location header-location popup select" data-popup
+                        data-da=".header-menu__actions,992.2,1">
                         <button class="header-location__btn popup__open" type="button">
                            <i class="header-location__icon _icon-location"></i>
                            <div class="header-location__btn-text select__current">Москва</div>
@@ -97,21 +98,21 @@
                            </div>
                         </div>
                      </div>
-                     <div class="header-top__phone header-phone">
+                     <div class="header-top__phone header-phone" data-da=".header-menu__actions,992.2,0">
                         <div class="header-phone__dropdown header-phone-dropdown">
-                           <a class="header-phone-dropdown__link" href="tel:84950183210">
-                              8 495 018-32-10
-                           </a>
                            <div class="header-phone-dropdown__item">
+                              <a class="header-phone-dropdown__link" href="tel:84950183210">
+                                 8 495 018-32-10
+                              </a>
                               <button class="header-phone-dropdown__arrow _icon-arrow" type="button"></button>
-                              <div class="header-phone-dropdown__list">
-                                 <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
-                                    8 495 018-32-10
-                                 </a>
-                                 <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
-                                    8 495 018-32-10
-                                 </a>
-                              </div>
+                           </div>
+                           <div class="header-phone-dropdown__list">
+                              <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
+                                 8 495 018-32-10
+                              </a>
+                              <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
+                                 8 495 018-32-10
+                              </a>
                            </div>
                         </div>
                         <div class="header-phone__callback header-phone-callback popup" data-popup>
@@ -159,25 +160,36 @@
                         </div>
                      </div>
                      <nav class="header-top__menu header-menu">
-                        <button class="header-menu__burger"><span></span></button>
+                        <div class="header-menu__wrapper"></div>
                         <div class="header-menu__body">
-                           <ul class="header-menu__list">
-                              <li class="header-menu__item">
-                                 <a class="header-menu__link" href="#">Оплата</a>
-                              </li>
-                              <li class="header-menu__item">
-                                 <a class="header-menu__link" href="#">Доставка</a>
-                              </li>
-                              <li class="header-menu__item">
-                                 <a class="header-menu__link" href="#">Поставщикам</a>
-                              </li>
-                              <li class="header-menu__item">
-                                 <a class="header-menu__link" href="#">Статьи</a>
-                              </li>
-                              <li class="header-menu__item">
-                                 <a class="header-menu__link" href="#">Контакты</a>
-                              </li>
-                           </ul>
+                           <div class="header-menu__top">
+                              <a class="header-menu__logo" href="index.html">
+                                 <img src="img/logo.svg" alt="menu-logo">
+                              </a>
+                              <button class="header-menu__close" type="button"><span></span></button>
+                           </div>
+                           <div class="header-menu__content">
+                              <ul class="header-menu__list">
+                                 <li class="header-menu__item">
+                                    <a class="header-menu__link" href="#">Оплата</a>
+                                 </li>
+                                 <li class="header-menu__item">
+                                    <a class="header-menu__link" href="#">Доставка</a>
+                                 </li>
+                                 <li class="header-menu__item">
+                                    <a class="header-menu__link" href="#">Поставщикам</a>
+                                 </li>
+                                 <li class="header-menu__item">
+                                    <a class="header-menu__link" href="#">Статьи</a>
+                                 </li>
+                                 <li class="header-menu__item">
+                                    <a class="header-menu__link" href="#">Контакты</a>
+                                 </li>
+                              </ul>
+                              <div class="header-menu__actions">
+
+                              </div>
+                           </div>
                         </div>
                      </nav>
                   </div>
@@ -211,6 +223,7 @@
 </footer>
    </div>
    <script src="js/script.js"></script>
+   <script src="js/swiper-bundle.min.js"></script>
 </body>
 
 </html>
