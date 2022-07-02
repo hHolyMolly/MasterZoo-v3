@@ -1142,6 +1142,19 @@ body._lock-scroll {
           align-items: center;
 }
 
+@media (min-width: 992.2px) {
+  .header-phone-dropdown__item {
+    /* Если меньше контейнера */
+    margin-right: 12px;
+  }
+}
+
+@media (min-width: 992.2px) and (max-width: 1570px) {
+  .header-phone-dropdown__item {
+    margin-right: calc(8px + 4 * ((100vw - 320px) / 1250));
+  }
+}
+
 @media (max-width: 992.2px) {
   .header-phone-dropdown__item {
     width: 100%;
