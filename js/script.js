@@ -319,7 +319,7 @@ function actionsHeader() {
 	phoneShow()
 
 	function menuShow() {
-		const menuOpen = document.querySelector(".header-top__burger");
+		const menuOpen = document.querySelector(".header-menu__burger");
 
 		if (menuOpen) {
 			const menuWrapper = document.querySelector(".header-menu__wrapper");
