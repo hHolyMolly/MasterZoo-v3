@@ -7,7 +7,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="css/style.css">
-   <title>Promarket</title>
+   <title>Template</title>
 </head>
 
 <body>
@@ -15,196 +15,106 @@
       <div class="content">
          <header class="header">
    <div class="header__wrapper">
-      <div class="header__body">
-         <div class="header__top header-top">
-            <div class="header-top__wrapper">
-               <div class="header-top__container _container">
-                  <div class="header-top__body">
-                     <div class="header-top__left">
-                        <a class="header-top__logo" href="index.html">
-                           <img src="img/logo.svg" alt="header-logo">
+      <div class="header__top header-top">
+         <div class="header-top__wrapper">
+            <div class="header-top__container _container">
+               <div class="header-top__body">
+                  <div class="header-top__logo-wrapper">
+                     <a class="header-top__logo" href="index.html">
+                        <picture>
+                           <source srcset="img/header/logo-mobile.svg" media="(max-width: 768.2px)">
+                           <img src="img/header/logo.svg" alt="logo-pc">
+                        </picture>
+                     </a>
+                  </div>
+                  <div class="header-top__location header-location">
+                     <button class="header-location__btn popup-open" type="button" data-popup="popup-location">
+                        <i class="header-location__icon _icon-location"></i>
+                        <span class="header-location__selected">
+                           Москва
+                        </span>
+                     </button>
+                  </div>
+                  <div class="header-top__phone header-phone">
+                     <div class="header-phone__item">
+                        <a class="header-phone__link" href="tel:84950183210">
+                           8 495 018-32-10
                         </a>
-                     </div>
-                     <div class="header-top__location header-location popup select" data-popup
-                        data-da=".header-menu__actions,992.2,1">
-                        <button class="header-location__btn popup__open" type="button">
-                           <i class="header-location__icon _icon-location"></i>
-                           <div class="header-location__btn-text select__current">Москва</div>
-                        </button>
-                        <div class="header-location__popup header-location-popup popup__wrapper">
-                           <div class="header-location-popup__body popup__body">
-                              <div class="header-location-popup__top popup__top">
-                                 <div class="header-location-popup__title popup__title">
-                                    ГОРОД ИЛИ РЕГИОН
-                                 </div>
-                                 <button
-                                    class="header-location-popup__close popup__close _btn-click"><span></span></button>
-                              </div>
-                              <div
-                                 class="header-location-popup__content header-location-popup-content popup__content popup-content">
-                                 <div
-                                    class="header-location-popup-content__field header-location-popup-field popup-content__field popup-field">
-                                    <form class="header-location-popup-field__form popup-field__form" action="#">
-                                       <div class="header-location-popup-field__item popup-field__item">
-                                          <input class="header-location-popup-field__input popup-field__input"
-                                             id="header-location-popup-field__input" type="text" placeholder="Поиск">
-                                          <label
-                                             class="header-location-popup-field__btn header-location-popup-field__btn_search popup-field__btn"
-                                             for="header-location-popup-field__input">
-                                             <img src="img/icon/search.svg" alt="icon-search">
-                                          </label>
-                                       </div>
-                                    </form>
-                                 </div>
-                                 <div class="header-location-popup-content__select header-location-popup-select">
-                                    <ul class="header-location-popup-select__list select__list">
-                                       <li class="header-location-popup-select__item select__item">
-                                          Москва
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Московская область
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Санкт-Петербург
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Астрахань
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Барнаул
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Белгород
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Брянск
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Владивосток
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Владимир
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Волгоград
-                                       </li>
-                                       <li class="header-location-popup-select__item select__item">
-                                          Вологда
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="header-top__phone header-phone" data-da=".header-menu__actions,992.2,0">
                         <div class="header-phone__dropdown header-phone-dropdown">
-                           <div class="header-phone-dropdown__item">
-                              <a class="header-phone-dropdown__link" href="tel:84950183210">
-                                 8 495 018-32-10
-                              </a>
-                              <button class="header-phone-dropdown__arrow _icon-arrow" type="button"></button>
-                           </div>
-                           <div class="header-phone-dropdown__list">
-                              <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
-                                 8 495 018-32-10
-                              </a>
-                              <a class="header-phone-dropdown__sub-link" href="tel:84950183210">
-                                 8 495 018-32-10
-                              </a>
-                           </div>
-                        </div>
-                        <div class="header-phone__callback header-phone-callback popup" data-popup>
-                           <button class="header-phone-callback__btn popup__open" type="button">
-                              <span class="header-phone-callback__icon _icon-whatsapp"></span>
-                              Заказать звонок
-                           </button>
-                           <div class="header-phone-callback__wrapper popup__wrapper">
-                              <div class="header-phone-callback__body popup__body">
-                                 <div class="header-phone-callback__top popup__top">
-                                    <div class="header-phone-callback__title popup__title">
-                                       ЗАКАЗ ЗВОНКА
-                                    </div>
-                                    <button
-                                       class="header-phone-callback__close popup__close _btn-click"><span></span></button>
-                                 </div>
-                                 <div
-                                    class="header-phone-callback__content header-phone-callback-content popup__content popup-content">
-                                    <div
-                                       class="header-phone-callback-content__field header-phone-callback-field popup-content__field">
-                                       <form class="header-phone-callback-field__form popup-field__form" action="#">
-                                          <div class="header-phone-callback-field__name popup-field__item">
-                                             <input class="header-phone-callback-field__input popup-field__input"
-                                                type="text" minlength="8" placeholder="Ваше имя">
-                                          </div>
-                                          <div class="header-phone-callback-field__tel popup-field__item">
-                                             <input class="header-phone-callback-field__input popup-field__input"
-                                                type="number" placeholder="Телефон">
-                                          </div>
-                                          <div class="header-phone-callback-field__time popup-field__item">
-                                             <input class="header-phone-callback-field__time popup-field__input"
-                                                type="text" placeholder="Удобное время для звонка">
-                                          </div>
-                                       </form>
-                                    </div>
-                                    <button class="header-phone-callback-content__send popup-content__btn _btn-click"
-                                       type="submit">
-                                       ОТПРАВИТЬ
-                                    </button>
-                                    <p class="header-phone-callback-content__text">
-                                       Нажимая кнопку «Отправиться»,
-                                       вы соглашаетесь с документом
-                                       <a class="link" href="#">политика конфиденциальности</a>
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
+                           <button class="header-phone-dropdown__arrow _icon-arrow-first" type="button"></button>
+                           <ul class="header-phone-dropdown__list">
+                              <li class="header-phone-dropdown__item-list">
+                                 <a class="header-phone-dropdown__link-list" href="tel:84950183210">
+                                    8 495 018-32-10
+                                 </a>
+                              </li>
+                              <li class="header-phone-dropdown__item-list">
+                                 <a class="header-phone-dropdown__link-list" href="tel:84950183210">
+                                    8 495 018-32-10
+                                 </a>
+                              </li>
+                           </ul>
                         </div>
                      </div>
-                     <nav class="header-top__menu header-menu" data-da=".header-top__left,1300.2,0">
-                        <button class="header-menu__burger" type="button"><span></span></button>
-                        <div class="header-menu__wrapper"></div>
-                        <div class="header-menu__body">
+                     <div class="header-phone__callback header-callback">
+                        <button class="header-callback__btn popup-open" type="button" data-popup="popup-callback">
+                           <span class="header-callback__text-btn">
+                              Заказать звонок
+                           </span>
+                        </button>
+                     </div>
+                  </div>
+                  <nav class="header-top__menu header-menu" data-da=".header-top__logo-wrapper,1300.2,0">
+                     <button class="header-menu__burger" type="button"><span></span></button>
+                     <div class="header-menu__wrapper">
+                        <div class="header-menu__inner">
                            <div class="header-menu__top">
                               <a class="header-menu__logo" href="index.html">
-                                 <img src="img/logo.svg" alt="menu-logo">
+                                 <img src="img/header/logo.svg" alt="">
                               </a>
                               <button class="header-menu__close" type="button"><span></span></button>
                            </div>
                            <div class="header-menu__content">
                               <ul class="header-menu__list">
-                                 <li class="header-menu__item">
-                                    <a class="header-menu__link" href="#">Оплата</a>
+                                 <li class="header-menu__item-list">
+                                    <a class="header-menu__link-list" href="#">
+                                       Оплата
+                                    </a>
                                  </li>
-                                 <li class="header-menu__item">
-                                    <a class="header-menu__link" href="#">Доставка</a>
+                                 <li class="header-menu__item-list">
+                                    <a class="header-menu__link-list" href="#">
+                                       Доставка
+                                    </a>
                                  </li>
-                                 <li class="header-menu__item">
-                                    <a class="header-menu__link" href="#">Поставщикам</a>
+                                 <li class="header-menu__item-list">
+                                    <a class="header-menu__link-list" href="#">
+                                       Поставщикам
+                                    </a>
                                  </li>
-                                 <li class="header-menu__item">
-                                    <a class="header-menu__link" href="#">Статьи</a>
+                                 <li class="header-menu__item-list">
+                                    <a class="header-menu__link-list" href="#">
+                                       Статьи
+                                    </a>
                                  </li>
-                                 <li class="header-menu__item">
-                                    <a class="header-menu__link" href="#">Контакты</a>
+                                 <li class="header-menu__item-list">
+                                    <a class="header-menu__link-list" href="#">
+                                       Контакты
+                                    </a>
                                  </li>
                               </ul>
-                              <div class="header-menu__actions">
-
-                              </div>
                            </div>
                         </div>
-                     </nav>
-                  </div>
+                     </div>
+                  </nav>
                </div>
             </div>
          </div>
-         <div class="header__main header-main">
-            <div class="header-main__wrapper">
-               <div class="header-main__container _container">
-                  <div class="header-main__body">
+      </div>
+      <div class="header__main header-main">
+         <div class="header-main__wrapper">
+            <div class="header-main__container _container">
+               <div class="header-main__body">
 
-                  </div>
                </div>
             </div>
          </div>
@@ -224,28 +134,23 @@
       </div>
    </div>
 </footer>
+      <div class="popup-wrapper">
+	<div class="popup-wrapper__item popup-item popup-location">
+		<div class="popup-item__body">
+			<div class="popup-item__top">
+				<div class="popup-item__title">
+					ГОРОД ИЛИ РЕГИОН
+				</div>
+				<button class="popup-item__close" type="button"><span></span></button>
+			</div>
+			<div class="popup-item__content">
+
+			</div>
+		</div>
+	</div>
+</div>
    </div>
    <script src="js/script.js"></script>
-   <script src="js/swiper-bundle.min.js"></script>
 </body>
 
 </html>
-
-<!-- <div data-popup class="popup">
-   <button class="popup__open">
-      open
-   </button>
-   <div class="popup__wrapper">
-      <div class="popup__body">
-         <div class="popup__top">
-            <div class="popup__title">
-               title
-            </div>
-            <button class="popup__close"><span></span></button>
-         </div>
-         <div class="popup__content popup-content">
-            content
-         </div>
-      </div>
-   </div>
-</div> -->

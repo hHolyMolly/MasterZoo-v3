@@ -145,7 +145,7 @@ function dynamicAdaptive() {
 dynamicAdaptive() // ДИНАМИЧЕСКИЙ АДАПТИВ
 
 function scrollHeader() {
-	const header = document.querySelector('.header-top__wrapper');
+	const header = document.querySelector('.header');
 
 	const callback = function (entries, observer) {
 		if (entries[0].isIntersecting) {
@@ -183,7 +183,7 @@ scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛ
 
  // НАСТРОЙКИ СЛАЙДЕРА */
 
-/* function quantity() {
+function quantity() {
 
 	const counters = document.querySelectorAll('[data-quantity]');
 
@@ -224,7 +224,7 @@ scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛ
 	}
 
 };
-quantity() // СЧЁТЧИКИ */
+quantity() // СЧЁТЧИКИ
 
 /* function spoiler() {
 	const spoilers = document.querySelectorAll("[data-spoiler]");
@@ -247,107 +247,81 @@ quantity() // СЧЁТЧИКИ */
 }
 spoiler() // СПОЙЛЕРЫ */
 
-const popupShow = function () {
-	const popups = document.querySelectorAll("[data-popup]");
-	const body = document.body;
+const myPopup = function () {
+	const openBtns = document.querySelectorAll(".popup-open");
+	let popupData;
 
-	if (popups.length > 0) {
-		popups.forEach(popup => {
-			popup.addEventListener("click", function (e) {
-				const elementTarget = e.target;
+	if (openBtns.length > 0) {
+		openBtns.forEach(open => {
+			open.addEventListener("click", function () {
+				popupData = this.getAttribute("data-popup");
 
-				if (elementTarget.closest(".popup__open")) {
-					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.add("_active");
-					elementTarget.closest(".popup").querySelector(".popup__body").classList.add("_active");
-					body.classList.add("_lock-scroll");
+				const wrappers = document.querySelectorAll(".popup-item");
+
+				function selectPopup(popupData) {
+					wrappers.forEach(wrap => {
+						if (wrap.classList.contains(popupData)) {
+							wrap.classList.add("_active");
+						}
+					});
 				}
+				selectPopup(popupData)
 
-				if (elementTarget.closest(".popup__close") || elementTarget.classList.contains("_active") && !elementTarget.closest(".popup__body")) {
-					elementTarget.closest(".popup").querySelector(".popup__wrapper").classList.remove("_active");
-					elementTarget.closest(".popup").querySelector(".popup__body").classList.remove("_active");
-					body.classList.remove("_lock-scroll");
-				}
 			});
 		});
 	}
-}
-popupShow() // ПОПАПЫ
 
-let select = function () {
-	let selectItems = document.querySelectorAll('.select__item');
+	function closePopup() {
+		const closeBtn = document.querySelector(".popup-item__close");
+		const wrapper = document.querySelector(".popup-item");
 
-	selectItems.forEach(selectItem => {
-		selectItem.addEventListener('click', function () {
-			let text = this.innerText;
-			let select = this.closest('.select');
-			let currentText = select.querySelector('.select__current');
-			currentText.innerText = text;
+		if (closeBtn) {
+			closeBtn.addEventListener("click", function () {
+				wrapper.classList.remove("_active");
+			});
+		}
 
-			if (document.querySelector(".popup__wrapper").classList.contains("_active")) {
-				document.querySelector(".popup__wrapper").classList.remove("_active")
-				document.querySelector(".popup__body").classList.remove("_active")
+		wrapper.addEventListener("click", function (e) {
+			const elementTarget = e.target;
+
+			if (!elementTarget.closest(".popup-item__body")) {
+				wrapper.classList.remove("_active");
 			}
 		});
-	});
-};
-select(); // ПОПАПЫ
+	}
+	closePopup()
+}
+myPopup() // ПОПАПЫ 
 
 //< " СКРИПТЫ " >=============================================================================================================>//
 
 function actionsHeader() {
 
-	function phoneShow() {
-		const phoneArrow = document.querySelector(".header-phone-dropdown__arrow");
-		const phoneBody = document.querySelector(".header-phone-dropdown__list");
-
-		if (phoneArrow && phoneBody) {
-			phoneArrow.addEventListener("click", function () {
-				phoneArrow.classList.toggle("_active");
-				phoneBody.classList.toggle("_active");
-			});
-
-			document.addEventListener("click", function (e) {
-				const elementTarget = e.target;
-
-				if (!elementTarget.closest(".header-phone-dropdown")) {
-					phoneArrow.classList.remove("_active");
-					phoneBody.classList.remove("_active");
-				}
-			});
-		}
-	}
-	phoneShow()
-
-	function menuShow() {
+	function menuBurger() {
 		const menuOpen = document.querySelector(".header-menu__burger");
 
 		if (menuOpen) {
 			const menuWrapper = document.querySelector(".header-menu__wrapper");
-			const menuBody = document.querySelector(".header-menu__body");
+			const menuClose = document.querySelector(".header-menu__close");
 
 			menuOpen.addEventListener("click", function () {
 				menuWrapper.classList.add("_active");
-				menuBody.classList.add("_active");
-				document.body.classList.add("_lock-scroll");
 			});
 
-			document.addEventListener("click", function (e) {
+			menuClose.addEventListener("click", function () {
+				menuWrapper.classList.remove("_active");
+			});
+
+			menuWrapper.addEventListener("click", function (e) {
 				const elementTarget = e.target;
 
-				if (elementTarget.closest(".header-menu__close") || elementTarget.closest(".header-menu__wrapper")) {
+				if (menuWrapper.classList.contains("_active") && !elementTarget.closest(".header-menu__inner")) {
 					menuWrapper.classList.remove("_active");
-					menuBody.classList.remove("_active");
-					document.body.classList.remove("_lock-scroll");
-				}
-
-				if (elementTarget.closest(".popup__open")) {
-					menuWrapper.classList.remove("_active");
-					menuBody.classList.remove("_active");
 				}
 			});
 		}
 	}
-	menuShow()
+	menuBurger()
 
 }
 actionsHeader()
