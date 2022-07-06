@@ -30,7 +30,7 @@
                   <div class="header-top__location header-location">
                      <button class="header-location__btn popup-open" type="button" data-popup="popup-location">
                         <i class="header-location__icon _icon-location"></i>
-                        <span class="header-location__selected">
+                        <span class="header-location__selected popup-location-select">
                            Москва
                         </span>
                      </button>
@@ -57,7 +57,7 @@
                         </div>
                      </div>
                      <div class="header-phone__callback header-callback">
-                        <button class="header-callback__btn popup-open" type="button" data-popup="popup-callback">
+                        <button class="header-callback__btn popup-open" type="button" data-popup="popup-phone">
                            <span class="header-callback__text-btn">
                               Заказать звонок
                            </span>
@@ -136,15 +136,103 @@
 </footer>
       <div class="popup-wrapper">
 	<div class="popup-wrapper__item popup-item popup-location">
-		<div class="popup-item__body">
-			<div class="popup-item__top">
-				<div class="popup-item__title">
+		<div class="popup-location__body popup-item__body">
+			<div class="popup-location__top popup-item__top">
+				<div class="popup-location__title popup-item__title">
 					ГОРОД ИЛИ РЕГИОН
 				</div>
-				<button class="popup-item__close" type="button"><span></span></button>
+				<button class="popup-location__close popup-item__close" type="button"><span></span></button>
 			</div>
-			<div class="popup-item__content">
-
+			<div class="popup-location__content popup-item__content">
+				<div class="popup-location__field popup-location-field popup-item__field popup-field">
+					<form class="popup-location-field__form popup-field__form" action="#">
+						<div class="popup-location-field__item popup-field__item">
+							<input class="popup-location-field__input popup-field__input" type="text"
+								id="popup-location-field__search" placeholder="Поиск">
+							<label class="popup-location-field__label popup-field__label" for="popup-location-field__search">
+								<img src="img/icon/search.svg" alt="search">
+							</label>
+						</div>
+					</form>
+				</div>
+				<div class="popup-location__select popup-location-select">
+					<ul class="popup-location-select__list">
+						<li class="popup-location-select__item _active">
+							Москва
+						</li>
+						<li class="popup-location-select__item">
+							Московская область
+						</li>
+						<li class="popup-location-select__item">
+							Санкт-Петербург
+						</li>
+						<li class="popup-location-select__item">
+							Астрахань
+						</li>
+						<li class="popup-location-select__item">
+							Барнаул
+						</li>
+						<li class="popup-location-select__item">
+							Белгород
+						</li>
+						<li class="popup-location-select__item">
+							Брянск
+						</li>
+						<li class="popup-location-select__item">
+							Владивосток
+						</li>
+						<li class="popup-location-select__item">
+							Владимир
+						</li>
+						<li class="popup-location-select__item">
+							Волгоград
+						</li>
+						<li class="popup-location-select__item">
+							Вологда
+						</li>
+						<li class="popup-location-select__item">
+							Томск
+						</li>
+						<li class="popup-location-select__item">
+							Тверь
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup-wrapper__item popup-item popup-phone">
+		<div class="popup-phone__body popup-item__body">
+			<div class="popup-phone__top popup-item__top">
+				<div class="popup-phone__title popup-item__title">
+					ГОРОД ИЛИ РЕГИОН
+				</div>
+				<button class="popup-phone__close popup-item__close" type="button"><span></span></button>
+			</div>
+			<div class="popup-phone__content popup-item__content">
+				<div class="popup-phone__field popup-phone-field popup-item__field popup-field">
+					<form class="popup-phone-field__form popup-field__form" action="#">
+						<div class="popup-phone-field__item popup-field__item">
+							<input class="popup-phone-field__input popup-field__input" type="text" placeholder="Ваше имя"
+								required>
+						</div>
+						<div class="popup-phone-field__item popup-field__item">
+							<input class="popup-phone-field__input popup-field__input" type="tel" placeholder="Телефон"
+								required maxlength="9">
+						</div>
+						<div class="popup-phone-field__item popup-field__item">
+							<input class="popup-phone-field__input popup-field__input" type="text"
+								placeholder="Удобное время для звонка" required>
+						</div>
+						<button class="popup-phone__btn popup-item__btn" type="submit">ОТПРАВИТЬ</button>
+					</form>
+				</div>
+				<div class="popup-item__text">
+					Нажимая кнопку «Отправить», вы соглашаетесь с документом
+					<a class="_link" href="#">
+						политика конфиденциальности
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

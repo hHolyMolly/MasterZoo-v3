@@ -145,7 +145,7 @@ function dynamicAdaptive() {
 dynamicAdaptive() // ДИНАМИЧЕСКИЙ АДАПТИВ
 
 function scrollHeader() {
-	const header = document.querySelector('.header');
+	const header = document.querySelector('.header-top');
 
 	const callback = function (entries, observer) {
 		if (entries[0].isIntersecting) {
@@ -249,14 +249,13 @@ spoiler() // СПОЙЛЕРЫ */
 
 const myPopup = function () {
 	const openBtns = document.querySelectorAll(".popup-open");
+	const wrappers = document.querySelectorAll(".popup-item");
 	let popupData;
 
 	if (openBtns.length > 0) {
 		openBtns.forEach(open => {
 			open.addEventListener("click", function () {
 				popupData = this.getAttribute("data-popup");
-
-				const wrappers = document.querySelectorAll(".popup-item");
 
 				function selectPopup(popupData) {
 					wrappers.forEach(wrap => {
@@ -269,27 +268,31 @@ const myPopup = function () {
 
 			});
 		});
-	}
 
-	function closePopup() {
-		const closeBtn = document.querySelector(".popup-item__close");
-		const wrapper = document.querySelector(".popup-item");
+		function closePopup() {
+			const closeBtns = document.querySelectorAll(".popup-item__close");
+			const wrapper = document.querySelectorAll(".popup-item");
 
-		if (closeBtn) {
-			closeBtn.addEventListener("click", function () {
-				wrapper.classList.remove("_active");
+			closeBtns.forEach(closeBtn => {
+				closeBtn.addEventListener("click", function () {
+					wrapper.forEach(wrap => {
+						wrap.classList.remove("_active");
+					});
+				});
+			});
+
+			wrapper.forEach(wrap => {
+				wrap.addEventListener("click", function (e) {
+					const elementTarget = e.target;
+
+					if (!elementTarget.closest(".popup-item__body")) {
+						wrap.classList.remove("_active");
+					}
+				});
 			});
 		}
-
-		wrapper.addEventListener("click", function (e) {
-			const elementTarget = e.target;
-
-			if (!elementTarget.closest(".popup-item__body")) {
-				wrapper.classList.remove("_active");
-			}
-		});
+		closePopup()
 	}
-	closePopup()
 }
 myPopup() // ПОПАПЫ 
 
@@ -323,5 +326,53 @@ function actionsHeader() {
 	}
 	menuBurger()
 
+	function phoneShow() {
+		const phoneArrow = document.querySelector(".header-phone-dropdown__arrow");
+		const phoneList = document.querySelector(".header-phone-dropdown__list");
+
+		if (phoneArrow) {
+			phoneArrow.addEventListener("click", function () {
+				phoneArrow.classList.toggle("_active");
+				phoneList.classList.toggle("_active");
+			});
+
+			document.addEventListener("click", function (e) {
+				const elementTarget = e.target;
+
+				if (!elementTarget.closest(".header-phone-dropdown")) {
+					phoneArrow.classList.remove("_active");
+					phoneList.classList.remove("_active");
+				}
+			});
+		}
+	}
+	phoneShow()
+
+	function customSelect() {
+		let selectItem = document.querySelectorAll('.popup-location-select__item');
+
+		selectItem.forEach(item => {
+			item.addEventListener("click", function () {
+				let text = this.innerText;
+				let currentText = document.querySelector('.header-location__selected');
+				currentText.innerText = text;
+
+				selectItem.forEach(item => {
+					item.classList.remove("_active");
+				});
+
+				this.classList.add("_active");
+			});
+		});
+
+		document.addEventListener("click", function (e) {
+			const elementTarget = e.target;
+
+			if (elementTarget.closest(".popup-location-select__item")) {
+				document.querySelector(".popup-item").classList.remove("_active");
+			}
+		})
+	};
+	customSelect()
 }
 actionsHeader()
