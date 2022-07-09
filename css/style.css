@@ -716,8 +716,8 @@ body._lock-scroll {
 
 .header-menu__burger {
   margin-right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -729,28 +729,28 @@ body._lock-scroll {
   }
 }
 .header-menu__burger span {
-  width: 25px;
+  width: 30px;
   height: 2px;
   position: relative;
-  transition: background-color 0.2s ease-in-out 0s;
-  background-color: #004C93;
+  border-radius: 4px;
+  background-color: #2B7BC6;
 }
 .header-menu__burger span:before, .header-menu__burger span:after {
   content: "";
-  width: 25px;
+  width: 30px;
   height: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  transition: transform 0.2s ease-in-out 0s;
-  background-color: #004C93;
+  border-radius: 4px;
+  background-color: #2B7BC6;
 }
 .header-menu__burger span:before {
-  top: -8px;
+  top: -9px;
 }
 .header-menu__burger span:after {
-  top: 8px;
+  top: 9px;
 }
 @media (max-width: 1300.2px) {
   .header-menu__wrapper {
@@ -1536,10 +1536,12 @@ body._lock-scroll {
   .header-catalog-sub__back {
     padding: 5px 15px 5px 0px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
     background-color: transparent;
   }
   .header-catalog-sub__back span {
-    margin-left: 3px;
+    margin-left: 5px;
     /* Если меньше контейнера */
     font-size: 20px;
     font-weight: 600;
@@ -1558,6 +1560,7 @@ body._lock-scroll {
   .header-catalog-sub__back:before {
     content: "←";
     font-size: 24px;
+    color: #222;
   }
 }
 .header-catalog-sub__title {
@@ -1813,25 +1816,12 @@ body._lock-scroll {
 }
 
 .header-user__btn {
-  /* Если меньше контейнера */
-  padding-left: 10px;
-  /* Если меньше контейнера */
-  padding-right: 10px;
+  padding: 0px 10px;
   min-height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
-}
-@media (max-width: 1570px) {
-  .header-user__btn {
-    padding-left: calc(5px + 5 * ((100vw - 320px) / 1250));
-  }
-}
-@media (max-width: 1570px) {
-  .header-user__btn {
-    padding-right: calc(5px + 5 * ((100vw - 320px) / 1250));
-  }
 }
 @media (any-hover: hover) {
   .header-user__btn:hover .header-user__icon {
@@ -1849,26 +1839,13 @@ body._lock-scroll {
 }
 
 .header-favorites__btn {
-  /* Если меньше контейнера */
-  padding-left: 10px;
-  /* Если меньше контейнера */
-  padding-right: 10px;
+  padding: 0px 10px;
   min-height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   background-color: transparent;
-}
-@media (max-width: 1570px) {
-  .header-favorites__btn {
-    padding-left: calc(5px + 5 * ((100vw - 320px) / 1250));
-  }
-}
-@media (max-width: 1570px) {
-  .header-favorites__btn {
-    padding-right: calc(5px + 5 * ((100vw - 320px) / 1250));
-  }
 }
 @media (any-hover: hover) {
   .header-favorites__btn:hover .header-favorites__icon {
@@ -1933,26 +1910,13 @@ body._lock-scroll {
 }
 
 .header-basket__btn {
-  /* Если меньше контейнера */
-  padding-left: 10px;
-  /* Если меньше контейнера */
-  padding-right: 10px;
+  padding: 0px 5px 0px 10px;
   min-height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   background-color: transparent;
-}
-@media (max-width: 1570px) {
-  .header-basket__btn {
-    padding-left: calc(5px + 5 * ((100vw - 320px) / 1250));
-  }
-}
-@media (max-width: 1570px) {
-  .header-basket__btn {
-    padding-right: calc(0px + 10 * ((100vw - 320px) / 1250));
-  }
 }
 @media (any-hover: hover) {
   .header-basket__btn:hover .header-basket__icon {
