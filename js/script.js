@@ -147,11 +147,19 @@ dynamicAdaptive() // ДИНАМИЧЕСКИЙ АДАПТИВ
 function scrollHeader() {
 	const header = document.querySelector('.header-top');
 
+	const catalogBtn = document.querySelector(".header-catalog__btn");
+	const catalogBody = document.querySelector(".header-catalog__inner");
+	const catalogWrapper = document.querySelector(".header-catalog__wrapper");
+
 	const callback = function (entries, observer) {
 		if (entries[0].isIntersecting) {
 			header.classList.remove('_scroll');
 		} else {
 			header.classList.add('_scroll');
+
+			catalogBtn.classList.remove("_active");
+			catalogBody.classList.remove("_active");
+			catalogWrapper.classList.remove("_active");
 		}
 	};
 
@@ -234,10 +242,10 @@ quantity() // СЧЁТЧИКИ
 
 			spoiler.addEventListener("click", function (e) {
 				const elementTarget = e.target;
+				e.preventDefault();
 
 				if (elementTarget.closest(".spoiler__btn")) {
 					elementTarget.closest(".spoiler").querySelector(".spoiler__btn").classList.toggle("_active");
-					elementTarget.closest(".spoiler").querySelector(".spoiler__arrow").classList.toggle("_active");
 					elementTarget.closest(".spoiler").querySelector(".spoiler__list").classList.toggle("_active");
 				}
 			});
@@ -377,7 +385,7 @@ function actionsHeader() {
 	};
 	customSelect()
 
-	function catalogShow() {
+	function myCatalog() {
 		const catalogBtn = document.querySelector(".header-catalog__btn");
 		const catalogBody = document.querySelector(".header-catalog__inner");
 		const catalogWrapper = document.querySelector(".header-catalog__wrapper");
@@ -385,26 +393,29 @@ function actionsHeader() {
 		const catalogContent = document.querySelectorAll(".header-catalog-sub__item");
 		const catalogNav = document.querySelectorAll(".header-catalog-main__link");
 
-		function openCatalog() {
-			catalogBtn.addEventListener("click", function () {
-				catalogBtn.classList.toggle("_active");
-				catalogBody.classList.toggle("_active");
-				catalogWrapper.classList.toggle("_active");
+		const widthCatalog = 992.2;
 
-				if (window.innerWidth < 768.2) {
-					for (let index = 0; index < catalogContent.length; index++) {
-						const catalogItem = catalogContent[index];
-						catalogItem.classList.remove("_active");
+		if (catalogBtn) {
+			function openCatalog() {
+				catalogBtn.addEventListener("click", function () {
+					catalogBtn.classList.toggle("_active");
+					catalogBody.classList.toggle("_active");
+					catalogWrapper.classList.toggle("_active");
+
+					if (window.innerWidth < widthCatalog) {
+						catalogContent.forEach(catalogItem => {
+							catalogItem.classList.remove("_active");
+						});
+						catalogNav.forEach(itemNav => {
+							itemNav.classList.remove("_active");
+						});
+
+						document.body.classList.add("_lock-scroll");
 					}
-					for (let index = 0; index < catalogNav.length; index++) {
-						const itemNav = catalogNav[index];
-						itemNav.classList.remove("_active");
-					}
-					document.body.classList.add("_lock-scroll");
-				}
-			});
+				});
+			}
+			openCatalog()
 		}
-		openCatalog()
 
 		function closeCatalog() {
 			catalogWrapper.addEventListener("click", function () {
@@ -412,7 +423,7 @@ function actionsHeader() {
 				catalogBody.classList.remove("_active");
 				catalogWrapper.classList.remove("_active");
 
-				if (window.innerWidth < 768.2) {
+				if (window.innerWidth < widthCatalog) {
 					catalogContent.forEach(contentItem => {
 						contentItem.classList.remove("_active");
 					});
@@ -425,8 +436,8 @@ function actionsHeader() {
 		let catalogData;
 
 		catalogNav.forEach(itemNav => {
-			if (window.innerWidth > 768.2) {
-				itemNav.addEventListener("mouseover", function () {
+			itemNav.addEventListener("mouseover", function () {
+				if (window.innerWidth > widthCatalog) {
 					catalogData = this.getAttribute("data-catalog")
 
 					catalogNav.forEach(itemNav => {
@@ -444,9 +455,10 @@ function actionsHeader() {
 						});
 					}
 					selectSubCatalog(catalogData)
-				});
-			} else {
-				itemNav.addEventListener("click", function (e) {
+				}
+			});
+			itemNav.addEventListener("click", function (e) {
+				if (window.innerWidth < widthCatalog) {
 					catalogData = this.getAttribute("data-catalog");
 					e.preventDefault();
 
@@ -460,11 +472,13 @@ function actionsHeader() {
 						});
 					}
 					selectSubCatalog(catalogData)
-				});
+				}
+			});
 
-				function selectTitle() {
-					let catalogTitle = document.querySelectorAll('.header-catalog-main__link');
+			function selectTitle() {
+				let catalogTitle = document.querySelectorAll('.header-catalog-main__link');
 
+				if (catalogTitle) {
 					catalogTitle.forEach(item => {
 						item.addEventListener("click", function () {
 							let text = this.querySelector(".header-catalog-main__text-link").innerHTML;
@@ -483,24 +497,27 @@ function actionsHeader() {
 						});
 					});
 				}
-				selectTitle()
+			}
+			selectTitle()
 
-				catalogBody.addEventListener("click", function (e) {
-					const elementTarget = e.target;
+			catalogBody.addEventListener("click", function (e) {
+				const elementTarget = e.target;
 
-					if (elementTarget.closest(".header-catalog__close")) {
-						catalogBtn.classList.remove("_active");
-						catalogBody.classList.remove("_active");
-						catalogWrapper.classList.remove("_active");
+				if (elementTarget.closest(".header-catalog__close")) {
+					catalogBtn.classList.remove("_active");
+					catalogBody.classList.remove("_active");
+					catalogWrapper.classList.remove("_active");
 
-						catalogContent.forEach(contentItem => {
-							contentItem.classList.remove("_active");
-						});
-					}
-				});
+					catalogContent.forEach(contentItem => {
+						contentItem.classList.remove("_active");
+					});
+				}
+			});
 
-				catalogContent.forEach(contentItem => {
-					contentItem.addEventListener("click", function (e) {
+			catalogContent.forEach(contentItem => {
+				contentItem.addEventListener("click", function (e) {
+
+					if (window.innerWidth < widthCatalog) {
 						const elementTarget = e.target;
 
 						if (elementTarget.closest(".header-catalog-sub__back")) {
@@ -508,29 +525,9 @@ function actionsHeader() {
 								contentItem.classList.remove("_active");
 							});
 						}
-					});
+					}
 				});
-			}
-
-			function catalogSpoiler() {
-				const spoilers = document.querySelectorAll("[data-catalog-spoiler]");
-
-				if (spoilers.length > 0) {
-					spoilers.forEach(spoiler => {
-
-						spoiler.addEventListener("click", function (e) {
-							const elementTarget = e.target;
-
-							if (elementTarget.closest(".header-catalog-sub__big-link")) {
-								elementTarget.closest(".header-catalog-sub__list").querySelector(".header-catalog-sub__big-link").classList.add("_active");
-								elementTarget.closest(".header-catalog-sub__list").querySelector(".header-catalog-sub__sub-list").classList.add("_active");
-							}
-						});
-					});
-				}
-
-			}
-			catalogSpoiler()
+			});
 
 			document.addEventListener("click", function (e) {
 				const elementTarget = e.target;
@@ -542,8 +539,8 @@ function actionsHeader() {
 				}
 			})
 		});
-	}
-	catalogShow()
 
+	}
+	myCatalog()
 }
 actionsHeader()
