@@ -319,16 +319,27 @@ function actionsHeader() {
 
 			menuOpen.addEventListener("click", function () {
 				menuWrapper.classList.add("_active");
+				document.body.classList.add("_lock-scroll");
 			});
 
 			menuClose.addEventListener("click", function () {
 				menuWrapper.classList.remove("_active");
+				document.body.classList.remove("_lock-scroll");
 			});
 
 			menuWrapper.addEventListener("click", function (e) {
 				const elementTarget = e.target;
 
 				if (menuWrapper.classList.contains("_active") && !elementTarget.closest(".header-menu__inner")) {
+					menuWrapper.classList.remove("_active");
+					document.body.classList.remove("_lock-scroll");
+				}
+			});
+
+			document.addEventListener("click", function (e) {
+				const elementTarget = e.target;
+
+				if (elementTarget.closest(".popup-open")) {
 					menuWrapper.classList.remove("_active");
 				}
 			});
@@ -338,21 +349,23 @@ function actionsHeader() {
 
 	function phoneShow() {
 		const phoneArrow = document.querySelector(".header-phone-dropdown__arrow");
-		const phoneList = document.querySelector(".header-phone-dropdown__list");
+		const phoneLists = document.querySelectorAll(".header-phone-dropdown__list");
 
 		if (phoneArrow) {
-			phoneArrow.addEventListener("click", function () {
-				phoneArrow.classList.toggle("_active");
-				phoneList.classList.toggle("_active");
-			});
+			phoneLists.forEach(phoneList => {
+				phoneArrow.addEventListener("click", function () {
+					phoneArrow.classList.toggle("_active");
+					phoneList.classList.toggle("_active");
+				});
 
-			document.addEventListener("click", function (e) {
-				const elementTarget = e.target;
+				document.addEventListener("click", function (e) {
+					const elementTarget = e.target;
 
-				if (!elementTarget.closest(".header-phone-dropdown")) {
-					phoneArrow.classList.remove("_active");
-					phoneList.classList.remove("_active");
-				}
+					if (!elementTarget.closest(".header-phone-dropdown") && window.innerWidth > 992.2) {
+						phoneArrow.classList.remove("_active");
+						phoneList.classList.remove("_active");
+					}
+				});
 			});
 		}
 	}
@@ -393,7 +406,7 @@ function actionsHeader() {
 		const catalogContent = document.querySelectorAll(".header-catalog-sub__item");
 		const catalogNav = document.querySelectorAll(".header-catalog-main__link");
 
-		const widthCatalog = 992.2;
+		const widthCatalog = 768.2;
 
 		if (catalogBtn) {
 			function openCatalog() {
@@ -427,7 +440,6 @@ function actionsHeader() {
 					catalogContent.forEach(contentItem => {
 						contentItem.classList.remove("_active");
 					});
-					document.body.classList.close("_lock-scroll");
 				}
 			});
 		}
@@ -507,6 +519,7 @@ function actionsHeader() {
 					catalogBtn.classList.remove("_active");
 					catalogBody.classList.remove("_active");
 					catalogWrapper.classList.remove("_active");
+					document.body.classList.remove("_lock-scroll");
 
 					catalogContent.forEach(contentItem => {
 						contentItem.classList.remove("_active");

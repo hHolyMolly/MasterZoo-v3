@@ -22,12 +22,12 @@
                   <div class="header-top__logo-wrapper">
                      <a class="header-top__logo" href="index.html">
                         <picture>
-                           <source srcset="img/header/logo-mobile.svg" media="(max-width: 768.2px)">
+                           <source srcset="img/header/logo-mobile.svg" media="(max-width: 425.2px)">
                            <img src="img/header/logo.svg" alt="logo-pc">
                         </picture>
                      </a>
                   </div>
-                  <div class="header-top__location header-location">
+                  <div class="header-top__location header-location" data-da=".header-menu__actions,992.1">
                      <button class="header-location__btn popup-open" type="button" data-popup="popup-location">
                         <i class="header-location__icon _icon-location"></i>
                         <span class="header-location__selected popup-location-select">
@@ -35,14 +35,14 @@
                         </span>
                      </button>
                   </div>
-                  <div class="header-top__phone header-phone">
+                  <div class="header-top__phone header-phone" data-da=".header-menu__actions,992.0">
                      <div class="header-phone__item">
                         <a class="header-phone__link" href="tel:84950183210">
                            8 495 018-32-10
                         </a>
                         <div class="header-phone__dropdown header-phone-dropdown">
                            <button class="header-phone-dropdown__arrow _icon-arrow-first" type="button"></button>
-                           <ul class="header-phone-dropdown__list">
+                           <ul class="header-phone-dropdown__list header-phone-dropdown__list_pc">
                               <li class="header-phone-dropdown__item-list">
                                  <a class="header-phone-dropdown__link-list" href="tel:84950183210">
                                     8 495 018-32-10
@@ -56,6 +56,18 @@
                            </ul>
                         </div>
                      </div>
+                     <ul class="header-phone-dropdown__list header-phone-dropdown__list_mobile">
+                        <li class="header-phone-dropdown__item-list">
+                           <a class="header-phone-dropdown__link-list" href="tel:84950183210">
+                              8 495 018-32-10
+                           </a>
+                        </li>
+                        <li class="header-phone-dropdown__item-list">
+                           <a class="header-phone-dropdown__link-list" href="tel:84950183210">
+                              8 495 018-32-10
+                           </a>
+                        </li>
+                     </ul>
                      <div class="header-phone__callback header-callback">
                         <button class="header-callback__btn popup-open" type="button" data-popup="popup-phone">
                            <span class="header-callback__text-btn">
@@ -102,6 +114,9 @@
                                     </a>
                                  </li>
                               </ul>
+                              <div class="header-menu__actions">
+
+                              </div>
                            </div>
                         </div>
                      </div>
@@ -114,7 +129,7 @@
          <div class="header-main__wrapper">
             <div class="header-main__container _container">
                <div class="header-main__body">
-                  <div class="header-main__catalog header-catalog">
+                  <div class="header-main__catalog header-catalog" data-da=".page-catalog__body,768.2">
                      <button class="header-catalog__btn" type="button">
                         <i class="header-catalog__icon-btn"><span></span></i>
                         <span class="header-catalog__text-btn">
@@ -130,6 +145,14 @@
                            <button class="header-catalog__close" type="button"><span></span></button>
                         </div>
                         <div class="header-catalog__main header-catalog-main">
+                           <a class="header-catalog-main__link" href="#" data-catalog="catalog-item-01">
+                              <i class="header-catalog-main__icon-link">
+                                 <img src="img/catalog/icon-01.svg" alt="icon-01">
+                              </i>
+                              <span class="header-catalog-main__text-link">
+                                 Плитка
+                              </span>
+                           </a>
                            <a class="header-catalog-main__link _active" href="#" data-catalog="catalog-item-02">
                               <i class="header-catalog-main__icon-link">
                                  <img src="img/catalog/icon-02.svg" alt="icon-02">
@@ -140,14 +163,176 @@
                            </a>
                            <a class="header-catalog-main__link" href="#" data-catalog="catalog-item-03">
                               <i class="header-catalog-main__icon-link">
-                                 <img src="img/catalog/icon-03.svg" alt="icon-04">
+                                 <img src="img/catalog/icon-03.svg" alt="icon-03">
                               </i>
                               <span class="header-catalog-main__text-link">
                                  Мебель для ванной
                               </span>
                            </a>
+                           <a class="header-catalog-main__link" href="#" data-catalog="catalog-item-04">
+                              <i class="header-catalog-main__icon-link">
+                                 <img src="img/catalog/icon-04.svg" alt="icon-04">
+                              </i>
+                              <span class="header-catalog-main__text-link">
+                                 Электроника и бытовая
+                                 техника
+                              </span>
+                           </a>
+                           <a class="header-catalog-main__link" href="#" data-catalog="catalog-item-05">
+                              <i class="header-catalog-main__icon-link">
+                                 <img src="img/catalog/icon-05.svg" alt="icon-05">
+                              </i>
+                              <span class="header-catalog-main__text-link">
+                                 Отопление
+                              </span>
+                           </a>
+                           <a class="header-catalog-main__link" href="#" data-catalog="catalog-item-06">
+                              <i class="header-catalog-main__icon-link">
+                                 <img src="img/catalog/icon-06.svg" alt="icon-06">
+                              </i>
+                              <span class="header-catalog-main__text-link">
+                                 Напольное покрытие
+                              </span>
+                           </a>
                         </div>
                         <div class="header-catalog__sub header-catalog-sub">
+                           <div class="header-catalog-sub__item catalog-item-01">
+                              <div class="header-catalog-sub__top">
+                                 <button class="header-catalog-sub__back" type="button">
+                                    <span>Каталог товаров</span>
+                                 </button>
+                                 <div class="header-catalog-sub__title">
+                                    Плитка
+                                 </div>
+                              </div>
+                              <div class="header-catalog-sub__column">
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Плитка мозаика
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Плитка мозаика №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Плитка мозаика №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Плитка мозаика №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Плитка для стен
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Плитка для стен №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Плитка для стен №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Плитка для стен №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Плитка для пола
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Поддон для пола №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Поддон для пола №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Поддон для пола №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Тротуарная плитка
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Тротуарная плитка №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Тротуарная плитка №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Тротуарная плитка №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #1
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #2
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #3
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #4
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #5
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #6
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #7
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #8
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          декоративные элементы #9
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          клинкерная плитка #1
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          клинкерная плитка #2
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          клинкерная плитка #3
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <a class="header-catalog-sub__banner _ibg" href="#">
+                                    <img src="img/catalog/banner/item-01.jpg" alt="banner">
+                                 </a>
+                              </div>
+                           </div>
                            <div class="header-catalog-sub__item catalog-item-02 _active">
                               <div class="header-catalog-sub__top">
                                  <button class="header-catalog-sub__back" type="button">
@@ -314,7 +499,7 @@
                                        </a>
                                     </div>
                                  </div>
-                                 <a href="#" class="header-catalog-sub__banner">
+                                 <a class="header-catalog-sub__banner _ibg" href="#">
                                     <img src="img/catalog/banner/item-02.jpg" alt="banner-02">
                                  </a>
                               </div>
@@ -407,12 +592,412 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <a href="#" class="header-catalog-sub__banner">
+                                 <a class="header-catalog-sub__banner _ibg" href="#">
+                                    <img src="img/catalog/banner/item-03.jpg" alt="banner">
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="header-catalog-sub__item catalog-item-04">
+                              <div class="header-catalog-sub__top">
+                                 <button class="header-catalog-sub__back" type="button">
+                                    <span>Каталог товаров</span>
+                                 </button>
+                                 <div class="header-catalog-sub__title">
+                                    Электроника и бытовая техника
+                                 </div>
+                              </div>
+                              <div class="header-catalog-sub__column">
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Стиральные машины
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Сушилки
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Посудомоечные машины
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Вытяжки
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Крупная бытовая техника
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Плиты
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Винные шкафы
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Холодильники
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Морозильные камеры
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <a class="header-catalog-sub__banner _ibg" href="#">
                                     <img src="img/catalog/banner/item-02.jpg" alt="banner">
                                  </a>
                               </div>
                            </div>
+                           <div class="header-catalog-sub__item catalog-item-05">
+                              <div class="header-catalog-sub__top">
+                                 <button class="header-catalog-sub__back" type="button">
+                                    <span>Каталог товаров</span>
+                                 </button>
+                                 <div class="header-catalog-sub__title">
+                                    Электроника и бытовая техника
+                                 </div>
+                              </div>
+                              <div class="header-catalog-sub__column">
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Водонагреватели
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Бойлеры
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Проточные водонагреватели
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Газовые колонки
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Котлы отопления
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Котлы газовые
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Котлы твердотопливные
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Котлы электрические
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Радиаторы отопления
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Печи и камины
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Наборы каминных принадлежностей
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Дымоходы
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Средства по уходу за каминами
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Циркуляционные насосы
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Гидроаккумуляторы
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Расширительные баки
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Тепловые панели
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Полотенцесушители
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Тепловые панели
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Масляные обогреватели
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Инфракрасные обогреватели
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <a class="header-catalog-sub__banner _ibg" href="#">
+                                    <img src="img/catalog/banner/item-04.jpg" alt="banner">
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="header-catalog-sub__item catalog-item-06">
+                              <div class="header-catalog-sub__top">
+                                 <button class="header-catalog-sub__back" type="button">
+                                    <span>Каталог товаров</span>
+                                 </button>
+                                 <div class="header-catalog-sub__title">
+                                    Электроника и бытовая техника
+                                 </div>
+                              </div>
+                              <div class="header-catalog-sub__column">
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Стиральные машины
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Сушилки
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Посудомоечные машины
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Вытяжки
+                                       </a>
+                                       <div class="header-catalog-sub__sub-list">
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №1
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №2
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Товар №3
+                                          </a>
+                                          <a class="header-catalog-sub__little-link" href="#">
+                                             Ещё
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Крупная бытовая техника
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Плиты
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Винные шкафы
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="header-catalog-sub__row">
+                                    <div class="header-catalog-sub__list">
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Холодильники
+                                       </a>
+                                       <a class="header-catalog-sub__big-link" href="#">
+                                          Морозильные камеры
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <a class="header-catalog-sub__banner _ibg" href="#">
+                                    <img src="img/catalog/banner/item-06.jpg" alt="banner">
+                                 </a>
+                              </div>
+                           </div>
                         </div>
+                     </div>
+                  </div>
+                  <a class="header-main__stock header-main__link" href="#" data-da=".header-menu__actions,992.2,4">
+                     АКЦИИ
+                  </a>
+                  <a class="header-main__brands header-main__link" href="brands.html"
+                     data-da=".header-menu__actions,992.2,3">
+                     БРЕНДЫ
+                  </a>
+                  <div class="header-main__search header-search">
+                     <form class="header-search__form" action="#">
+                        <input class="header-search__input" name="q" type="search" placeholder="Что вы ищете?">
+                        <button class="header-search__send" type="submit">
+                           <img src="img/icon/search.svg" alt="search">
+                        </button>
+                     </form>
+                  </div>
+                  <div class="header-main__actions" data-da=".header-top__body,1300.2">
+                     <div class="header-main__user header-user">
+                        <button class="header-user__btn" type="button">
+                           <i class="header-user__icon _icon-user"></i>
+                        </button>
+                     </div>
+                     <div class="header-main__favorites header-favorites">
+                        <a class="header-favorites__btn" href="#">
+                           <span class="header-favorites__value">1</span>
+                           <i class="header-favorites__icon _icon-favorites"></i>
+                        </a>
+                     </div>
+                     <div class="header-main__basket header-basket">
+                        <button class="header-basket__btn" type="button">
+                           <span class="header-basket__value">4</span>
+                           <i class="header-basket__icon _icon-basket"></i>
+                        </button>
                      </div>
                   </div>
                </div>
@@ -422,7 +1007,15 @@
    </div>
 </header>
          <main class="page">
+            <div class="page__catalog page-catalog">
+               <div class="page-catalog__wrapper">
+                  <div class="page-catalog__container _container">
+                     <div class="page-catalog__body">
 
+                     </div>
+                  </div>
+               </div>
+            </div>
          </main>
       </div>
       <footer class="footer">
