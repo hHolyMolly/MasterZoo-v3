@@ -2056,6 +2056,7 @@ body._lock-scroll {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 2;
   border-bottom: 1px solid #E7EAEE;
   background-color: #fff;
 }
@@ -2144,8 +2145,15 @@ body._lock-scroll {
   }
 }
 .popup-item__field {
+  /* Если меньше контейнера */
+  row-gap: 20px;
   width: 100%;
   display: flex;
+}
+@media (max-width: 1570px) {
+  .popup-item__field {
+    row-gap: calc(15px + 5 * ((100vw - 320px) / 1250));
+  }
 }
 .popup-item__btn {
   padding: 5px 15px;
@@ -2192,15 +2200,6 @@ body._lock-scroll {
   text-align: left;
   color: #82878F;
 }
-.popup-item__text:not(:first-child) {
-  /* Если меньше контейнера */
-  margin-top: 20px;
-}
-@media (max-width: 1570px) {
-  .popup-item__text:not(:first-child) {
-    margin-top: calc(15px + 5 * ((100vw - 320px) / 1250));
-  }
-}
 .popup-item__text ._link {
   color: #2B7BC6;
 }
@@ -2215,7 +2214,16 @@ body._lock-scroll {
 }
 
 .popup-field__form {
+  /* Если меньше контейнера */
+  row-gap: 20px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1570px) {
+  .popup-field__form {
+    row-gap: calc(15px + 5 * ((100vw - 320px) / 1250));
+  }
 }
 .popup-field__item {
   width: 100%;
@@ -2229,15 +2237,6 @@ body._lock-scroll {
 @media (max-width: 1570px) {
   .popup-field__item {
     min-height: calc(45px + 5 * ((100vw - 320px) / 1250));
-  }
-}
-.popup-field__item:not(:last-child) {
-  /* Если меньше контейнера */
-  margin-bottom: 20px;
-}
-@media (max-width: 1570px) {
-  .popup-field__item:not(:last-child) {
-    margin-bottom: calc(15px + 5 * ((100vw - 320px) / 1250));
   }
 }
 .popup-field__input {
@@ -2368,6 +2367,94 @@ body._lock-scroll {
   .popup-location__select {
     margin-top: calc(15px + 5 * ((100vw - 320px) / 1250));
   }
+}
+
+.popup-user-field__password-show {
+  /* Если меньше контейнера */
+  width: 50px;
+  height: 100%;
+  position: relative;
+}
+@media (max-width: 1570px) {
+  .popup-user-field__password-show {
+    width: calc(45px + 5 * ((100vw - 320px) / 1250));
+  }
+}
+.popup-user-field__password-show:after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  position: absolute;
+  top: 43.7%;
+  left: 50%;
+  transform: translate(-50%) rotate(-45deg);
+  pointer-events: none;
+  transition: background-color 0.1s ease 0s;
+  background-color: transparent;
+}
+.popup-user-field__password-show._active:after {
+  background-color: #9DA4A8;
+}
+
+.popup-user__nav {
+  /* Если меньше контейнера */
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 1570px) {
+  .popup-user__nav {
+    margin-bottom: calc(20px + 5 * ((100vw - 320px) / 1250));
+  }
+}
+.popup-user__select-tab {
+  padding: 5px 0px;
+  position: relative;
+  transition: color 0.2s ease 0s;
+  background-color: transparent;
+  /* Если меньше контейнера */
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #222;
+}
+@media (max-width: 1570px) {
+  .popup-user__select-tab {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 1250));
+  }
+}
+.popup-user__select-tab:after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease 0s;
+  background-color: transparent;
+}
+.popup-user__select-tab._active {
+  color: #3BB9B8;
+}
+.popup-user__select-tab._active:after {
+  background-color: #3BB9B8;
+}
+.popup-user__select-tab:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-right: 25px;
+}
+@media (max-width: 1570px) {
+  .popup-user__select-tab:not(:last-child) {
+    margin-right: calc(15px + 10 * ((100vw - 320px) / 1250));
+  }
+}
+.popup-user__tab-item {
+  display: none;
+}
+.popup-user__tab-item._active {
+  display: block;
 }
 
 .page__catalog {

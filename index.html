@@ -975,7 +975,8 @@
                   </a>
                   <div class="header-main__search header-search">
                      <form class="header-search__form" action="#">
-                        <input class="header-search__input" name="q" type="search" placeholder="Что вы ищете?">
+                        <input class="header-search__input" name="q" type="search" autocomplete="off"
+                           placeholder="Что вы ищете?">
                         <button class="header-search__send" type="submit">
                            <img src="img/icon/search.svg" alt="search">
                         </button>
@@ -983,7 +984,7 @@
                   </div>
                   <div class="header-main__actions" data-da=".header-top__body,1300.2">
                      <div class="header-main__user header-user">
-                        <button class="header-user__btn" type="button">
+                        <button class="header-user__btn popup-open" type="button" data-popup="popup-user">
                            <i class="header-user__icon _icon-user"></i>
                         </button>
                      </div>
@@ -1125,6 +1126,85 @@
 					<a class="_link" href="#">
 						политика конфиденциальности
 					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup-wrapper__item popup-item popup-user">
+		<div class="popup-user__body popup-item__body">
+			<div class="popup-user__top popup-item__top">
+				<div class="popup-user__title popup-item__title">
+					ЛИЧНЫЙ КАБИНЕТ
+				</div>
+				<button class="popup-user__close popup-item__close" type="button"><span></span></button>
+			</div>
+			<div class="popup-user__content popup-item__content">
+				<div class="popup-user__nav">
+					<button class="popup-user__select-tab _active" type="button" data-user-tab="user-tab-01">Вход</button>
+					<button class="popup-user__select-tab" type="button" data-user-tab="user-tab-02">Регистрация</button>
+				</div>
+				<div class="popup-user__tabs-list">
+					<div class="popup-user__tab-item user-tab-01 _active">
+						<div class="popup-user__field popup-user-field popup-item__field popup-field">
+							<form class="popup-user-field__form popup-field__form" action="#">
+								<div class="popup-user-field__item popup-field__item">
+									<input class="popup-user-field__input popup-field__input" type="email" placeholder="Email"
+										required>
+								</div>
+								<div class="popup-user-field__item popup-user-field__password popup-field__item">
+									<input class="popup-user-field__input popup-user-field__password-input popup-field__input"
+										type="password" placeholder="Пароль" required minlength="6">
+									<button class="popup-user-field__password-show" type="button">
+										<img src="img/icon/password.svg" alt="show-password">
+									</button>
+								</div>
+								<div class="popup-item__text">
+									<a class="_link" href="#">
+										Напомнить пароль?
+									</a>
+								</div>
+								<button class="popup-user__btn popup-item__btn" type="submit">ВОЙТИ</button>
+							</form>
+						</div>
+					</div>
+					<div class="popup-user__tab-item user-tab-02">
+						<div class="popup-user__field popup-user-field popup-item__field popup-field">
+							<form class="popup-user-field__form popup-field__form" action="#">
+								<div class="popup-user-field__item popup-field__item">
+									<input class="popup-user-field__input popup-field__input" type="text" placeholder="Ваше имя"
+										required>
+								</div>
+								<div class="popup-user-field__item popup-field__item">
+									<input class="popup-user-field__input popup-field__input" type="email" placeholder="Email"
+										required>
+								</div>
+								<div class="popup-user-field__item popup-field__item">
+									<input class="popup-user-field__input popup-field__input" type="tel" placeholder="Телефон"
+										required>
+								</div>
+								<div class="popup-user-field__item popup-user-field__password popup-field__item">
+									<input class="popup-user-field__input popup-user-field__password-input popup-field__input"
+										type="password" placeholder="Пароль" required minlength="6">
+									<button class="popup-user-field__password-show" type="button">
+										<img src="img/icon/password.svg" alt="show-password">
+									</button>
+								</div>
+								<div class="popup-user-field__item popup-user-field__password popup-field__item">
+									<input class="popup-user-field__input popup-user-field__password-input popup-field__input"
+										type="password" placeholder="Подтвердите пароль" required minlength="6">
+									<button class="popup-user-field__password-show" type="button">
+										<img src="img/icon/password.svg" alt="show-password">
+									</button>
+								</div>
+								<div class="popup-item__text">
+									<a class="_link" href="#">
+										Напомнить пароль?
+									</a>
+								</div>
+								<button class="popup-user__btn popup-item__btn" type="submit">ВОЙТИ</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

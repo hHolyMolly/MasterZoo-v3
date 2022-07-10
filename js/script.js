@@ -555,5 +555,62 @@ function actionsHeader() {
 
 	}
 	myCatalog()
+
+	function myUserPopup() {
+
+		function userTabs() {
+			const btnTabs = document.querySelectorAll(".popup-user__select-tab");
+			const bodyTabs = document.querySelectorAll(".popup-user__tab-item");
+			let userData;
+
+			btnTabs.forEach(btn => {
+				btn.addEventListener("click", function () {
+					userData = this.getAttribute("data-user-tab");
+
+					btnTabs.forEach(btn => {
+						btn.classList.remove("_active");
+					});
+
+					this.classList.add("_active");
+
+					function userSelect(userData) {
+						bodyTabs.forEach(item => {
+							if (item.classList.contains(userData)) {
+								item.classList.add("_active");
+							} else {
+								item.classList.remove("_active");
+							}
+						});
+					}
+					userSelect(userData)
+
+				});
+			});
+		}
+		userTabs()
+
+		function userPasswordShow() {
+			const passwordBody = document.querySelectorAll('.popup-user-field__password');
+
+			passwordBody.forEach(body => {
+				body.addEventListener("click", function (e) {
+					const elementTarget = e.target;
+
+					if (elementTarget.closest(".popup-user-field__password-show")) {
+						if (elementTarget.closest(".popup-user-field__password").querySelector(".popup-user-field__password-input").getAttribute('type') === ('password')) {
+							elementTarget.closest(".popup-user-field__password").querySelector(".popup-user-field__password-input").setAttribute('type', 'text');
+							elementTarget.closest(".popup-user-field__password").querySelector(".popup-user-field__password-show").classList.add("_active");
+						} else {
+							elementTarget.closest(".popup-user-field__password").querySelector(".popup-user-field__password-input").setAttribute('type', 'password');
+							elementTarget.closest(".popup-user-field__password").querySelector(".popup-user-field__password-show").classList.remove("_active");
+						}
+					}
+				});
+			});
+		}
+		userPasswordShow()
+
+	}
+	myUserPopup()
 }
 actionsHeader()
