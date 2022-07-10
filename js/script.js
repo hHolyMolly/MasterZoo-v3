@@ -307,7 +307,21 @@ const myPopup = function () {
 }
 myPopup() // ПОПАПЫ 
 
-/* function addToCart(productButton, productId) {
+/* 
+if (targetElement.classList.contains('actions-product__button')) {
+	const productId = targetElement.closest('.item-product').dataset.pid;
+	addToCart(targetElement, productId);
+	e.preventDefault();
+}
+
+// Удаление товара из корзины
+if (targetElement.classList.contains('cart-list__delete')) {
+	const productId = targetElement.closest('.cart-list__item').dataset.cartPid;
+	updateCart(targetElement, productId, false);
+	e.preventDefault();
+}
+
+function addToCart(productButton, productId) {
 	if (!productButton.classList.contains('_hold')) {
 		productButton.classList.add('_hold');
 		productButton.classList.add('_fly');
@@ -573,6 +587,8 @@ function actionsHeader() {
 					catalogData = this.getAttribute("data-catalog");
 					e.preventDefault();
 
+					document.querySelector(".header-catalog-main").style.overflow = "hidden";
+
 					function selectSubCatalog(catalogData) {
 						catalogContent.forEach(contentItem => {
 							if (contentItem.classList.contains(catalogData)) {
@@ -605,6 +621,7 @@ function actionsHeader() {
 							let text = 'КАТАЛОГ ТОВАРОВ';
 							let currentText = document.querySelector('.header-catalog__title');
 							currentText.innerHTML = text;
+							document.querySelector(".header-catalog-main").style.overflow = "auto";
 						});
 					});
 				}
@@ -619,6 +636,7 @@ function actionsHeader() {
 					catalogBody.classList.remove("_active");
 					catalogWrapper.classList.remove("_active");
 					document.body.classList.remove("_lock-scroll");
+					document.querySelector(".header-catalog-main").style.overflow = "auto";
 
 					catalogContent.forEach(contentItem => {
 						contentItem.classList.remove("_active");
