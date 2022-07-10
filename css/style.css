@@ -771,7 +771,7 @@ body._lock-scroll {
   }
   .header-menu__wrapper._active .header-menu__inner {
     left: 0%;
-    box-shadow: 0px 0px 30px rgba(146, 162, 177, 0.8);
+    box-shadow: 0px 0px 40px rgba(105, 118, 131, 0.9);
   }
 }
 @media (max-width: 1300.2px) {
@@ -2053,6 +2053,7 @@ body._lock-scroll {
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+  background-color: #fff;
 }
 @media (max-width: 425.2px) {
   .popup-item__body {
@@ -2522,7 +2523,14 @@ body._lock-scroll {
 }
 
 .popup-basket__body {
+  /* Если меньше контейнера */
+  padding-bottom: 155px;
   position: relative;
+}
+@media (max-width: 1570px) {
+  .popup-basket__body {
+    padding-bottom: calc(135px + 20 * ((100vw - 320px) / 1250));
+  }
 }
 
 .popup-basket-content {
@@ -2533,14 +2541,10 @@ body._lock-scroll {
   /* Если меньше контейнера */
   padding-left: 20px;
   /* Если меньше контейнера */
-  padding-bottom: 175px;
+  padding-bottom: 20px;
   width: 100%;
   max-height: 330px;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   overflow: auto;
 }
 @media (max-width: 1570px) {
@@ -2560,7 +2564,7 @@ body._lock-scroll {
 }
 @media (max-width: 1570px) {
   .popup-basket-content {
-    padding-bottom: calc(155px + 20 * ((100vw - 320px) / 1250));
+    padding-bottom: calc(15px + 5 * ((100vw - 320px) / 1250));
   }
 }
 @media (max-width: 425.2px) {
@@ -2609,7 +2613,7 @@ body._lock-scroll {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1;
   border-top: 1px solid #E7EAEE;
   background-color: #fff;
 }
