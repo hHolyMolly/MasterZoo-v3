@@ -1650,23 +1650,27 @@ body._lock-scroll {
   display: flex;
   flex-direction: column;
 }
-.header-catalog-sub__list:not(:last-child) {
-  /* Если меньше контейнера */
-  margin-bottom: 30px;
-}
-@media (max-width: 1570px) {
-  .header-catalog-sub__list:not(:last-child) {
-    margin-bottom: calc(15px + 15 * ((100vw - 320px) / 1250));
-  }
-}
 @media (min-width: 768.2px) {
   .header-catalog-sub__list {
     max-width: 230px;
+  }
+  .header-catalog-sub__list:not(:last-child) {
+    /* Если меньше контейнера */
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 768.2px) and (max-width: 1570px) {
+  .header-catalog-sub__list:not(:last-child) {
+    margin-bottom: calc(15px + 15 * ((100vw - 320px) / 1250));
   }
 }
 @media (max-width: 768.2px) {
   .header-catalog-sub__list {
     width: 100%;
+    border-bottom: 1px solid #E7EAEE;
+  }
+  .header-catalog-sub__list:not(:last-child) {
+    margin-bottom: 5px;
   }
 }
 .header-catalog-sub__sub-list {
