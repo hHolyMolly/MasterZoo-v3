@@ -914,6 +914,28 @@ body._lock-scroll {
     flex-direction: column;
   }
 }
+@media (min-width: 768.2), (any-hover: hover) {
+  .header-menu__item-list {
+    position: relative;
+  }
+  .header-menu__item-list:after {
+    content: "";
+    width: 0%;
+    height: 1px;
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease 0s;
+    background-color: #004C93;
+  }
+  .header-menu__item-list:hover:after {
+    width: 100%;
+  }
+  .header-menu__item-list:hover .header-menu__link-list {
+    color: #004C93;
+  }
+}
 @media (max-width: 1300.2px) {
   .header-menu__item-list {
     width: 100%;
@@ -954,6 +976,11 @@ body._lock-scroll {
 @media (max-width: 1300.2px) and (max-width: 1570px) {
   .header-menu__link-list {
     font-size: calc(14px + 2 * ((100vw - 320px) / 1250));
+  }
+}
+@media (any-hover: hover) {
+  .header-menu__link-list {
+    transition: color 0.3s ease 0s;
   }
 }
 
