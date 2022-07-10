@@ -1598,6 +1598,7 @@ body._lock-scroll {
 @media (max-width: 768.2px) {
   .header-catalog-sub__column {
     flex-direction: column;
+    justify-content: flex-start;
   }
 }
 .header-catalog-sub__row {
