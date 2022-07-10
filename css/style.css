@@ -1249,6 +1249,7 @@ body._lock-scroll {
     flex-direction: column;
     position: fixed;
     top: 0;
+    z-index: 2000;
     transform: scale(0.7);
     overflow: auto;
     background-color: #F1F8FF;
@@ -2587,6 +2588,8 @@ body._lock-scroll {
 .popup-basket-content__total {
   /* Если меньше контейнера */
   margin-bottom: 25px;
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 1570px) {
   .popup-basket-content__total {
@@ -2594,6 +2597,7 @@ body._lock-scroll {
   }
 }
 .popup-basket-content__total-text {
+  margin-right: 10px;
   font-size: 14px;
   font-weight: 400;
   line-height: 142.8571428571%;
