@@ -234,7 +234,7 @@ function quantity() {
 };
 quantity() // СЧЁТЧИКИ
 
-/* function spoiler() {
+function spoiler() {
 	const spoilers = document.querySelectorAll("[data-spoiler]");
 
 	if (spoilers.length > 0) {
@@ -253,7 +253,7 @@ quantity() // СЧЁТЧИКИ
 	}
 
 }
-spoiler() // СПОЙЛЕРЫ */
+spoiler() // СПОЙЛЕРЫ
 
 const myPopup = function () {
 	const openBtns = document.querySelectorAll(".popup-open");
@@ -307,6 +307,105 @@ const myPopup = function () {
 }
 myPopup() // ПОПАПЫ 
 
+/* function addToCart(productButton, productId) {
+	if (!productButton.classList.contains('_hold')) {
+		productButton.classList.add('_hold');
+		productButton.classList.add('_fly');
+
+		const cart = document.querySelector('.cart-header__icon');
+		const product = document.querySelector(`[data-pid="${productId}"]`);
+		const productImage = product.querySelector('.item-product__image');
+
+		const productImageFly = productImage.cloneNode(true);
+
+		const productImageFlyWidth = productImage.offsetWidth;
+		const productImageFlyHeight = productImage.offsetHeight;
+		const productImageFlyTop = productImage.getBoundingClientRect().top;
+		const productImageFlyLeft = productImage.getBoundingClientRect().left;
+
+		productImageFly.setAttribute('class', '_flyImage _ibg');
+		productImageFly.style.cssText =
+			`
+		left: ${productImageFlyLeft}px;
+		top: ${productImageFlyTop}px;
+		width: ${productImageFlyWidth}px;
+		height: ${productImageFlyHeight}px;
+		`;
+
+		document.body.append(productImageFly);
+
+		const cartFlyLeft = cart.getBoundingClientRect().left;
+		const cartFlyTop = cart.getBoundingClientRect().top;
+
+		productImageFly.style.cssText =
+			`
+		left: ${cartFlyLeft}px;
+		top: ${cartFlyTop}px;
+		width: 0px;
+		height: 0px;
+		opacity: 0;
+		`;
+
+		productImageFly.addEventListener('transitionend', function () {
+			if (productButton.classList.contains('_fly')) {
+				productImageFly.remove();
+				updateCart(productButton, productId);
+				productButton.classList.remove('_fly');
+			}
+		});
+
+
+	}
+}
+
+function updateCart(productButton, productId, productAdd = true) {
+	const cart = document.querySelector('.cart-header');
+	const cartIcon = cart.querySelector('.cart-header__icon');
+	const cartQuantity = cartIcon.querySelector('span');
+	const cartProduct = document.querySelector(`[data-cart-pid="${productId}"]`);
+	const cartList = document.querySelector('.cart-list');
+
+	//Add
+	if (productAdd) {
+		if (cartQuantity) {
+			cartQuantity.innerHTML = ++cartQuantity.innerHTML;
+		} else {
+			cartIcon.insertAdjacentHTML('beforeEnd', '<span>1</span>');
+		}
+		if (!cartProduct) {
+			const product = document.querySelector(`[data-pid="${productId}"]`);
+			const cartProductImage = product.querySelector('.item-product__image').innerHTML;
+			const cartProductTitle = product.querySelector('.item-product__title').innerHTML;
+			const cartProductContent = `
+			<a href="#" class="cart-list__image _ibg">${cartProductImage}</a>
+			<div class="cart-list__body">
+				<a href="#" class="cart-list__title">${cartProductTitle}</a>
+				<div class="cart-list__quantity">Quantity: <span>1</span></div>
+				<a href="#" class="cart-list__delete">Delete</a>
+			<div>`;
+			cartList.insertAdjacentHTML('beforeEnd', `<li data-cart-pid="${productId}" class="cart-list__item">${cartProductContent}</li>`);
+		} else {
+			const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
+			cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+		}
+		productButton.classList.remove('_hold');
+	} else {
+		const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
+		cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
+		if (!parseInt(cartProductQuantity.innerHTML)) {
+			cartProduct.remove();
+		}
+		const cartQuantityValue = --cartQuantity.innerHTML;
+		if (cartQuantityValue) {
+			cartQuantity.innerHTML = cartQuantityValue;
+		} else {
+			cartQuantity.remove();
+			cart.classList.remove('_active');
+		}
+	}
+
+} // КОРЗИНА */
+
 //< " СКРИПТЫ " >=============================================================================================================>//
 function actionsHeader() {
 
@@ -344,31 +443,31 @@ function actionsHeader() {
 				}
 			});
 		}
-	}
+	};
 	menuBurger()
 
 	function phoneShow() {
 		const phoneArrow = document.querySelector(".header-phone-dropdown__arrow");
-		const phoneLists = document.querySelectorAll(".header-phone-dropdown__list");
 
-		if (phoneArrow) {
-			phoneLists.forEach(phoneList => {
-				phoneArrow.addEventListener("click", function () {
-					phoneArrow.classList.toggle("_active");
-					phoneList.classList.toggle("_active");
-				});
+		phoneArrow.addEventListener("click", function () {
+			phoneArrow.classList.toggle("_active");
 
-				document.addEventListener("click", function (e) {
-					const elementTarget = e.target;
+			if (window.innerWidth > 992.2) {
+				document.querySelector(".header-phone-dropdown__list_pc").classList.toggle('_active')
+			} else {
+				document.querySelector(".header-phone-dropdown__list_mobile").classList.toggle('_active')
+			}
+		});
 
-					if (!elementTarget.closest(".header-phone-dropdown") && window.innerWidth > 992.2) {
-						phoneArrow.classList.remove("_active");
-						phoneList.classList.remove("_active");
-					}
-				});
-			});
-		}
-	}
+		document.addEventListener("click", function (e) {
+			const elementTarget = e.target;
+
+			if (!elementTarget.closest(".header-phone-dropdown") && window.innerWidth > 992.2) {
+				phoneArrow.classList.remove("_active");
+				document.querySelector(".header-phone-dropdown__list_pc").classList.remove('_active')
+			}
+		});
+	};
 	phoneShow()
 
 	function customSelect() {
@@ -553,7 +652,31 @@ function actionsHeader() {
 			})
 		});
 
-	}
+		function spoilerCatalog() {
+			const spoilers = document.querySelectorAll("[data-catalog-spoiler]");
+
+			if (spoilers.length > 0) {
+				spoilers.forEach(spoiler => {
+
+					spoiler.addEventListener("click", function (e) {
+						const elementTarget = e.target;
+
+						if (window.innerWidth < widthCatalog) {
+							e.preventDefault();
+
+							if (elementTarget.closest(".catalog-spoiler__btn")) {
+								elementTarget.closest(".catalog-spoiler").querySelector(".catalog-spoiler__btn").classList.toggle("_active");
+								elementTarget.closest(".catalog-spoiler").querySelector(".catalog-spoiler__list").classList.toggle("_active");
+							}
+						}
+					});
+				});
+			}
+
+		}
+		spoilerCatalog()
+
+	};
 	myCatalog()
 
 	function myUserPopup() {
@@ -610,7 +733,7 @@ function actionsHeader() {
 		}
 		userPasswordShow()
 
-	}
+	};
 	myUserPopup()
 }
 actionsHeader()
