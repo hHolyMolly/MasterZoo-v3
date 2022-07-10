@@ -168,20 +168,23 @@ function scrollHeader() {
 }
 scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛЛЕ
 
-/* new Swiper(".swiper", {
+new Swiper(".main-block-slider", {
 	slidesPerView: 1, // Количество слайдеров
-	spaceBetween: 15, // Отступ между слайдерами
 	grabCursor: true, // Курсор перетаскивания
 	loop: true, // Бесконечная прокрутка
 	speed: 800, // Скорость прокрутки
+	pagination: {
+		el: ".main-block-slider__pagination",
+		clickable: true,
+	},
 
 	autoplay: {
 		delay: 3500, // Задержка перед автопрокруткой
 	},
 
 	navigation: {
-		nextEl: ".swiper-button-next", // Кнопка прокрутки вперед
-		prevEl: ".swiper-button-prev", // Кнопка прокрутки назад
+		nextEl: ".main-block-slider__arrow_next", // Кнопка прокрутки вперед
+		prevEl: ".main-block-slider__arrow_prev", // Кнопка прокрутки назад
 	},
 
 	breakpoints: {
@@ -189,7 +192,7 @@ scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛ
 	}
 });
 
- // НАСТРОЙКИ СЛАЙДЕРА */
+ // НАСТРОЙКИ СЛАЙДЕРА
 
 function quantity() {
 
