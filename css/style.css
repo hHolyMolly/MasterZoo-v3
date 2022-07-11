@@ -1469,12 +1469,17 @@ body._lock-scroll {
     position: relative;
   }
   .header-catalog-main__link:after {
-    content: "❱";
+    content: "›";
     width: 20px;
-    height: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     right: 5px;
-    font-size: 12px;
+    font-size: 22px;
     color: #222;
   }
 }
