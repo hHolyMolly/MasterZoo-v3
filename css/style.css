@@ -173,6 +173,32 @@ input {
   content: "\e90b";
 }
 
+._title {
+  display: inline-flex;
+  position: relative;
+  /* Если меньше контейнера */
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 145.4545454545%;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #222;
+}
+@media (max-width: 1570px) {
+  ._title {
+    font-size: calc(22px + 8 * ((100vw - 320px) / 1250));
+  }
+}
+._title:after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #1061AB;
+}
+
 .footer-text {
   font-size: 14px;
   font-weight: 500;
@@ -3603,4 +3629,24 @@ body._lock-scroll {
     margin-top: 10px;
     text-align: center;
   }
+}
+
+.collections__wrapper {
+  overflow: hidden;
+}
+.collections__column {
+  display: grid;
+  grid-template-columns: repeat(6, 240px);
+  grid-template-rows: repeat(2, 240px);
+  grid-template-areas: "card-big card-big card-big card-middle card-middle card-little" "card-big card-big card-big card-little card-middle card-middle";
+}
+
+.collections-column__card_big {
+  grid-area: card-big;
+}
+.collections-column__card_middle {
+  grid-area: card-middle;
+}
+.collections-column__card_little {
+  grid-area: card-little;
 }
