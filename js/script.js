@@ -192,6 +192,31 @@ new Swiper(".main-block-slider", {
 	}
 });
 
+new Swiper(".products-slider", {
+	loop: true, // Бесконечная прокрутка
+	speed: 800, // Скорость прокрутки
+
+	navigation: {
+		nextEl: ".products-slider__arrow_next", // Кнопка прокрутки вперед
+		prevEl: ".products-slider__arrow_prev", // Кнопка прокрутки назад
+	},
+
+	breakpoints: {
+		1400.2: {
+			slidesPerView: 5,
+		},
+		992.2: {
+			slidesPerView: 4,
+		},
+		768.2: {
+			slidesPerView: 3,
+		},
+		425.2: {
+			slidesPerView: 2,
+		},
+	}
+});
+
  // НАСТРОЙКИ СЛАЙДЕРА
 
 function quantity() {
@@ -258,6 +283,37 @@ function spoiler() {
 }
 spoiler() // СПОЙЛЕРЫ
 
+function myBestSellerTabs() {
+	const btns = document.querySelectorAll(".bestseller-tab-btn");
+	const content = document.querySelectorAll(".bestseller-tab-content");
+	let dataSellerTab;
+
+	btns.forEach(btn => {
+		btn.addEventListener("click", function () {
+			dataSellerTab = this.getAttribute("data-bestseller-tabs");
+
+			btns.forEach(btn => {
+				btn.classList.remove("_active");
+			});
+
+			this.classList.add("_active");
+
+			function bestSellerSelect(dataSellerTab) {
+				content.forEach(item => {
+					if (item.classList.contains(dataSellerTab)) {
+						item.classList.add("_active");
+					} else {
+						item.classList.remove("_active");
+					}
+				});
+			}
+			bestSellerSelect(dataSellerTab)
+
+		});
+	});
+}
+myBestSellerTabs() // ТАБЫ
+
 const myPopup = function () {
 	const openBtns = document.querySelectorAll(".popup-open");
 	const wrappers = document.querySelectorAll(".popup-item");
@@ -309,6 +365,8 @@ const myPopup = function () {
 	}
 }
 myPopup() // ПОПАПЫ 
+
+ // НАСТРОЙКИ ЗВЕЗДНОГО РЕЙТИНГА
 
 /* 
 if (targetElement.classList.contains('actions-product__button')) {
@@ -509,6 +567,7 @@ function actionsHeader() {
 
 			if (elementTarget.closest(".popup-location-select__item")) {
 				document.querySelector(".popup-item").classList.remove("_active");
+				document.body.classList.remove("_lock-scroll");
 			}
 		})
 	};
@@ -758,3 +817,25 @@ function actionsHeader() {
 	myUserPopup()
 }
 actionsHeader()
+
+function actionsPage() {
+
+	function products() {
+
+		function productsFavorite() {
+			const productFavoriteBtns = document.querySelectorAll(".favorite-btn");
+
+			productFavoriteBtns.forEach(btn => {
+				btn.addEventListener("click", function () {
+					this.classList.toggle("_active");
+				});
+			});
+
+		}
+		productsFavorite()
+
+	}
+	products()
+
+}
+actionsPage()
