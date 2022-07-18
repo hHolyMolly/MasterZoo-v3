@@ -168,6 +168,7 @@ function scrollHeader() {
 }
 scrollHeader() // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛЛЕ
 
+//< " НАСТРОЙКИ СЛАЙДЕРА  " >=============================================================================================================>//
 new Swiper(".main-block-slider", {
 	slidesPerView: 1, // Количество слайдеров
 	grabCursor: true, // Курсор перетаскивания
@@ -192,9 +193,10 @@ new Swiper(".main-block-slider", {
 	}
 });
 
+//< " НАСТРОЙКИ СЛАЙДЕРА  " >=============================================================================================================>//
 new Swiper(".products-slider", {
 	loop: true, // Бесконечная прокрутка
-	speed: 800, // Скорость прокрутки
+	speed: 300, // Скорость прокрутки
 
 	navigation: {
 		nextEl: ".products-slider__arrow_next", // Кнопка прокрутки вперед
@@ -212,6 +214,30 @@ new Swiper(".products-slider", {
 			slidesPerView: 3,
 		},
 		375.2: {
+			slidesPerView: 2,
+		},
+	}
+});
+
+//< " НАСТРОЙКИ СЛАЙДЕРА  " >=============================================================================================================>//
+new Swiper(".articles-slider", {
+	spaceBetween: 20,
+	loop: true, // Бесконечная прокрутка
+	speed: 300, // Скорость прокрутки
+
+	navigation: {
+		nextEl: ".articles-slider__arrow_next", // Кнопка прокрутки вперед
+		prevEl: ".articles-slider__arrow_prev", // Кнопка прокрутки назад
+	},
+
+	breakpoints: {
+		1400.2: {
+			slidesPerView: 4,
+		},
+		768.2: {
+			slidesPerView: 3,
+		},
+		425.2: {
 			slidesPerView: 2,
 		},
 	}
@@ -312,7 +338,38 @@ function myBestSellerTabs() {
 		});
 	});
 }
-myBestSellerTabs() // ТАБЫ
+myBestSellerTabs()
+
+function myStockTabs() {
+	const btns = document.querySelectorAll(".stock-tab-btn");
+	const content = document.querySelectorAll(".stock-tab-content");
+	let dataStockTab;
+
+	btns.forEach(btn => {
+		btn.addEventListener("click", function () {
+			dataStockTab = this.getAttribute("data-stock-tabs");
+
+			btns.forEach(btn => {
+				btn.classList.remove("_active");
+			});
+
+			this.classList.add("_active");
+
+			function myStockTabsSelect(dataStockTab) {
+				content.forEach(item => {
+					if (item.classList.contains(dataStockTab)) {
+						item.classList.add("_active");
+					} else {
+						item.classList.remove("_active");
+					}
+				});
+			}
+			myStockTabsSelect(dataStockTab)
+
+		});
+	});
+}
+myStockTabs() // ТАБЫ
 
 const myPopup = function () {
 	const openBtns = document.querySelectorAll(".popup-open");
