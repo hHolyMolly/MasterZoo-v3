@@ -791,3 +791,28 @@ function actionsPage() {
 
 }
 actionsPage()
+
+function scrollTop() {
+	const scrollBtn = document.querySelector(".scroll-top");
+
+	if (scrollBtn) {
+		window.addEventListener("scroll", function () {
+			if (window.scrollY > 100) {
+				scrollBtn.classList.add("_active");
+			} else {
+				scrollBtn.classList.remove("_active");
+			}
+		});
+
+		scrollBtn.addEventListener("click", function () {
+			if (scrollBtn.classList.contains("_active")) {
+
+				window.scrollTo({
+					top: 0,
+					behavior: "smooth"
+				});
+			}
+		});
+	}
+}
+scrollTop()
