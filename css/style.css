@@ -193,6 +193,186 @@ body._lock-scroll {
   }
 }
 
+.our-story {
+  /* Если меньше контейнера */
+  padding-top: 100px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 148, 1, 0.054) 0%, rgba(255, 237, 211, 0) 100%);
+}
+@media (max-width: 1200px) {
+  .our-story {
+    padding-top: calc(80px + 20 * (100vw - 320px) / 880);
+  }
+}
+.our-story:not(:last-child) {
+  /* Если меньше контейнера */
+  padding-bottom: 100px;
+}
+@media (max-width: 1200px) {
+  .our-story:not(:last-child) {
+    padding-bottom: calc(80px + 20 * (100vw - 320px) / 880);
+  }
+}
+.our-story__title-little {
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+}
+.our-story__title-little:not(:last-child) {
+  margin-bottom: 10px;
+}
+.our-story__title-big {
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .our-story__title-big:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+.our-story__content {
+  width: 100%;
+  display: flex;
+}
+@media (max-width: 991.98px) {
+  .our-story__content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.our-story-text {
+  padding-top: 75px;
+  padding-bottom: 25px;
+}
+.our-story-text:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-right: 115px;
+}
+@media (max-width: 1200px) {
+  .our-story-text:not(:last-child) {
+    margin-right: calc(15px + 100 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .our-story-text {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+  }
+  .our-story-text:not(:last-child) {
+    margin-right: 0;
+    /* Если меньше контейнера */
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 991.98px) and (max-width: 1200px) {
+  .our-story-text:not(:last-child) {
+    margin-bottom: calc(10px + 20 * (100vw - 320px) / 880);
+  }
+}
+.our-story-text__container {
+  color: var(--black-900);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 118.75%;
+  text-align: left;
+}
+.our-story-text__container h2,
+.our-story-text__container h3,
+.our-story-text__container h4,
+.our-story-text__container h5,
+.our-story-text__container h6 {
+  /* Если меньше контейнера */
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 110%;
+}
+@media (max-width: 1200px) {
+  .our-story-text__container h2,
+  .our-story-text__container h3,
+  .our-story-text__container h4,
+  .our-story-text__container h5,
+  .our-story-text__container h6 {
+    font-size: calc(18px + 12 * (100vw - 320px) / 880);
+  }
+}
+.our-story-text__container h2:not(:last-child),
+.our-story-text__container h3:not(:last-child),
+.our-story-text__container h4:not(:last-child),
+.our-story-text__container h5:not(:last-child),
+.our-story-text__container h6:not(:last-child) {
+  margin-bottom: 10px;
+}
+.our-story-text__container p:not(:last-child),
+.our-story-text__container ul:not(:last-child),
+.our-story-text__container ol:not(:last-child) {
+  margin-bottom: 10px;
+}
+.our-story-text__container ul,
+.our-story-text__container ol {
+  padding-left: 18px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.our-story-text__container ul li {
+  list-style-type: disc;
+}
+.our-story-text__container ol {
+  list-style-type: decimal;
+}
+.our-story-text__container:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.our-story-right {
+  margin-top: auto;
+}
+@media (min-width: 991.98px) {
+  .our-story-right {
+    position: relative;
+  }
+}
+.our-story-right__image {
+  /* Если меньше контейнера */
+  width: 395px;
+  /* Если меньше контейнера */
+  height: 608px;
+  position: relative;
+}
+@media (max-width: 1200px) {
+  .our-story-right__image {
+    width: calc(262px + 133 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .our-story-right__image {
+    height: calc(402px + 206 * (100vw - 320px) / 880);
+  }
+}
+.our-story-right__image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.our-story-right__el {
+  position: absolute;
+  pointer-events: none;
+}
+.our-story-right__el_01 {
+  top: 140px;
+  left: 0;
+}
+.our-story-right__el_02 {
+  top: 156px;
+  right: 0;
+}
+.our-story-right__el_03 {
+  bottom: 72px;
+  right: 0;
+}
+
 .in-numbers:not(:last-child) {
   /* Если меньше контейнера */
   margin-bottom: 100px;
@@ -296,7 +476,7 @@ body._lock-scroll {
 .empowering {
   /* Если меньше контейнера */
   padding-top: 100px;
-  background: linear-gradient(180deg, rgba(255, 148, 1, 0.05) 0%, rgba(255, 237, 211, 0) 100%);
+  background: linear-gradient(180deg, rgba(255, 148, 1, 0.054) 0%, rgba(255, 237, 211, 0) 100%);
 }
 @media (max-width: 1200px) {
   .empowering {
