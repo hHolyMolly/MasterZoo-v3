@@ -1,0 +1,11 @@
+:root {
+  --white: #ffffff;
+  --black-900: #2e2e2e;
+  --black-700: #3f3232;
+  --green-400: #09a66d;
+  --orange-300: #ff9b0f;
+  --orange-400: #ff9401;
+  --background-page: #ffffff;
+  --background-wrapper: rgba(255, 255, 255, 0.6);
+  --font-family: "Gilroy", sans-serif;
+}
