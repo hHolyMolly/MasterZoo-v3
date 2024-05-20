@@ -232,13 +232,11 @@ body._lock-scroll {
   }
 }
 .our-story__content {
-  width: 100%;
   display: flex;
 }
 @media (max-width: 991.98px) {
   .our-story__content {
     flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -335,6 +333,11 @@ body._lock-scroll {
     position: relative;
   }
 }
+@media (max-width: 991.98px) {
+  .our-story-right {
+    width: 100%;
+  }
+}
 .our-story-right__image {
   /* Если меньше контейнера */
   width: 395px;
@@ -356,21 +359,57 @@ body._lock-scroll {
   max-width: 100%;
   max-height: 100%;
 }
+@media (max-width: 991.98px) {
+  .our-story-right__image {
+    margin: 0 auto;
+  }
+}
 .our-story-right__el {
   position: absolute;
   pointer-events: none;
 }
-.our-story-right__el_01 {
-  top: 140px;
-  left: 0;
+@media (min-width: 991.98px) {
+  .our-story-right__el_01 {
+    top: 140px;
+    /* Если меньше контейнера */
+    left: -80px;
+  }
 }
-.our-story-right__el_02 {
-  top: 156px;
-  right: 0;
+@media (min-width: 991.98px) and (max-width: 1200px) {
+  .our-story-right__el_01 {
+    left: calc(-60px + -20 * (100vw - 320px) / 880);
+  }
 }
-.our-story-right__el_03 {
-  bottom: 72px;
-  right: 0;
+@media (max-width: 991.98px) {
+  .our-story-right__el_01 {
+    right: 10px;
+    top: 0%;
+    transform: translateY(-50%);
+  }
+}
+@media (min-width: 991.98px) {
+  .our-story-right__el_02 {
+    top: 156px;
+    right: -50px;
+  }
+}
+@media (max-width: 991.98px) {
+  .our-story-right__el_02 {
+    left: -60px;
+    top: 80px;
+  }
+}
+@media (min-width: 991.98px) {
+  .our-story-right__el_03 {
+    bottom: 72px;
+    right: -130px;
+  }
+}
+@media (max-width: 991.98px) {
+  .our-story-right__el_03 {
+    right: -60px;
+    top: 54px;
+  }
 }
 
 .in-numbers:not(:last-child) {
@@ -1049,13 +1088,14 @@ body._lock-scroll {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease 0s;
   border-radius: 50%;
   background: linear-gradient(199.26deg, #e8f0fe 8.71%, #f4ecff 88.36%);
 }
 .testimonials__arrows .swiper-button-prev.swiper-button-disabled,
 .testimonials__arrows .swiper-button-next.swiper-button-disabled {
   pointer-events: none;
-  background: linear-gradient(199.26deg, #f1f7ff 8.71%, #f9f4ff 88.36%);
+  opacity: 0.4;
 }
 @media (min-width: 1365.98px) {
   .testimonials__arrows .swiper-button-prev,
@@ -1295,6 +1335,11 @@ body._lock-scroll {
 }
 .faq-item__top._active svg {
   transform: rotate(90deg);
+}
+@media (any-hover: hover) {
+  .faq-item__top:hover:before {
+    opacity: 1;
+  }
 }
 .faq-item__title {
   max-width: 910px;
