@@ -92,7 +92,8 @@ body._lock-scroll {
 }
 
 .header._scroll .header__wrapper {
-  background-color: var(--white);
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.85);
 }
 .header._scroll .header__body {
   padding-top: 16px;
@@ -191,6 +192,260 @@ body._lock-scroll {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+}
+
+.main-block ._container {
+  /* Если меньше контейнера */
+  padding-left: 20px;
+  /* Если меньше контейнера */
+  padding-right: 20px;
+}
+@media (max-width: 1200px) {
+  .main-block ._container {
+    padding-left: calc(0px + 20 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .main-block ._container {
+    padding-right: calc(0px + 20 * (100vw - 320px) / 880);
+  }
+}
+.main-block__body {
+  /* Если меньше контейнера */
+  padding-top: 115px;
+  /* Если меньше контейнера */
+  padding-bottom: 40px;
+  display: flex;
+  position: relative;
+}
+@media (max-width: 1200px) {
+  .main-block__body {
+    padding-top: calc(88px + 27 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .main-block__body {
+    padding-bottom: calc(80px + -40 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .main-block__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.main-block__title {
+  /* Если меньше контейнера */
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 100%;
+  text-align: left;
+}
+@media (max-width: 1200px) {
+  .main-block__title {
+    font-size: calc(44px + 52 * (100vw - 320px) / 880);
+  }
+}
+.main-block__title span {
+  display: inline-flex;
+  align-items: center;
+}
+.main-block__title span img {
+  /* Если меньше контейнера */
+  width: 62px;
+  /* Если меньше контейнера */
+  height: 62px;
+}
+@media (max-width: 1200px) {
+  .main-block__title span img {
+    width: calc(28px + 34 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .main-block__title span img {
+    height: calc(28px + 34 * (100vw - 320px) / 880);
+  }
+}
+.main-block__title span img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.main-block__title:not(:last-child) {
+  margin-bottom: 18px;
+}
+@media (max-width: 991.98px) {
+  .main-block__title {
+    padding: 0 10px 0 20px;
+    width: 100%;
+  }
+}
+.main-block__sub-title {
+  /* Если меньше контейнера */
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 100%;
+  text-align: left;
+}
+@media (max-width: 1200px) {
+  .main-block__sub-title {
+    font-size: calc(22px + 12 * (100vw - 320px) / 880);
+  }
+}
+.main-block__sub-title:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 46px;
+}
+@media (max-width: 1200px) {
+  .main-block__sub-title:not(:last-child) {
+    margin-bottom: calc(24px + 22 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .main-block__sub-title {
+    padding: 0 20px;
+    width: 100%;
+  }
+}
+.main-block__text {
+  /* Если меньше контейнера */
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 116.6666666667%;
+  text-align: left;
+}
+@media (max-width: 1200px) {
+  .main-block__text {
+    font-size: calc(16px + 2 * (100vw - 320px) / 880);
+  }
+}
+.main-block__text p:not(:last-child),
+.main-block__text ul:not(:last-child),
+.main-block__text ol:not(:last-child) {
+  margin-bottom: 15px;
+}
+.main-block__text ul,
+.main-block__text ol {
+  padding-left: 18px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.main-block__text ul li {
+  list-style-type: disc;
+}
+.main-block__text ol {
+  list-style-type: decimal;
+}
+.main-block__text a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .main-block__text a:hover {
+    text-decoration: none;
+  }
+}
+.main-block__text:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 32px;
+}
+@media (max-width: 1200px) {
+  .main-block__text:not(:last-child) {
+    margin-bottom: calc(46px + -14 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .main-block__text {
+    padding: 0 37px;
+    text-align: center;
+  }
+}
+.main-block__button {
+  padding-right: 36px;
+  padding-left: 36px;
+}
+.main-block__image {
+  /* Если меньше контейнера */
+  width: 649px;
+  /* Если меньше контейнера */
+  height: 628px;
+}
+@media (max-width: 1200px) {
+  .main-block__image {
+    width: calc(320px + 329 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .main-block__image {
+    height: calc(310px + 318 * (100vw - 320px) / 880);
+  }
+}
+.main-block__image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+@media (min-width: 991.98px) {
+  .main-block__image {
+    margin-top: -40px;
+    /* Если меньше контейнера */
+    margin-right: -130px;
+    flex-shrink: 0;
+    /* Если меньше контейнера */
+    flex-basis: 649px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1200px) {
+  .main-block__image {
+    margin-right: calc(-500px + 370 * (100vw - 320px) / 880);
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1200px) {
+  .main-block__image {
+    flex-basis: calc(345px + 304 * (100vw - 320px) / 880);
+  }
+}
+@media (min-width: 1599.98px) {
+  .main-block__image {
+    margin-right: -130px;
+  }
+}
+@media (max-width: 991.98px) {
+  .main-block__image {
+    display: flex;
+    justify-content: center;
+  }
+}
+.main-block__element {
+  /* Если меньше контейнера */
+  width: 352px;
+  /* Если меньше контейнера */
+  height: 171px;
+  position: absolute;
+  top: 0;
+  /* Если меньше контейнера */
+  right: 240px;
+  z-index: -1;
+}
+@media (max-width: 1200px) {
+  .main-block__element {
+    width: calc(120px + 232 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .main-block__element {
+    height: calc(55px + 116 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .main-block__element {
+    right: calc(22px + 218 * (100vw - 320px) / 880);
+  }
+}
+.main-block__element img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .our-story {
@@ -320,6 +575,16 @@ body._lock-scroll {
 }
 .our-story-text__container ol {
   list-style-type: decimal;
+}
+.our-story-text__container a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .our-story-text__container a:hover {
+    text-decoration: none;
+  }
 }
 .our-story-text__container:not(:last-child) {
   margin-bottom: 40px;
@@ -511,6 +776,16 @@ body._lock-scroll {
     font-size: calc(16px + 2 * (100vw - 320px) / 880);
   }
 }
+.in-numbers-card__text a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .in-numbers-card__text a:hover {
+    text-decoration: none;
+  }
+}
 
 .empowering {
   /* Если меньше контейнера */
@@ -622,6 +897,16 @@ body._lock-scroll {
 @media (max-width: 1200px) {
   .empowering-card__text {
     font-size: calc(14px + 2 * (100vw - 320px) / 880);
+  }
+}
+.empowering-card__text a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .empowering-card__text a:hover {
+    text-decoration: none;
   }
 }
 
@@ -919,6 +1204,242 @@ body._lock-scroll {
   color: var(--orange-400);
 }
 
+.your-passport {
+  /* Если меньше контейнера */
+  padding-bottom: 100px;
+  background: linear-gradient(360deg, rgba(255, 148, 1, 0.054) 0%, rgba(255, 237, 211, 0) 100%);
+}
+@media (max-width: 1200px) {
+  .your-passport {
+    padding-bottom: calc(80px + 20 * (100vw - 320px) / 880);
+  }
+}
+.your-passport:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 100px;
+}
+@media (max-width: 1200px) {
+  .your-passport:not(:last-child) {
+    margin-bottom: calc(80px + 20 * (100vw - 320px) / 880);
+  }
+}
+.your-passport-big {
+  display: flex;
+}
+.your-passport-big:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 50px;
+}
+@media (max-width: 1200px) {
+  .your-passport-big:not(:last-child) {
+    margin-bottom: calc(30px + 20 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .your-passport-big {
+    flex-direction: column-reverse;
+  }
+}
+.your-passport-big__image {
+  /* Если меньше контейнера */
+  width: 559px;
+  /* Если меньше контейнера */
+  height: 500px;
+  flex-shrink: 0;
+  /* Если меньше контейнера */
+  flex-basis: 559px;
+}
+@media (max-width: 1200px) {
+  .your-passport-big__image {
+    width: calc(300px + 259 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .your-passport-big__image {
+    height: calc(266px + 234 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .your-passport-big__image {
+    flex-basis: calc(300px + 259 * (100vw - 320px) / 880);
+  }
+}
+.your-passport-big__image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+@media (min-width: 991.98px) {
+  .your-passport-big__image:not(:last-child) {
+    /* Если меньше контейнера */
+    margin-right: 30px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1200px) {
+  .your-passport-big__image:not(:last-child) {
+    margin-right: calc(0px + 30 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .your-passport-big__image {
+    margin: 0 auto;
+  }
+}
+@media (min-width: 991.98px) {
+  .your-passport-big__content {
+    margin-top: auto;
+    /* Если меньше контейнера */
+    padding-bottom: 70px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1200px) {
+  .your-passport-big__content {
+    padding-bottom: calc(40px + 30 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .your-passport-big__content {
+    margin: 0 auto 28px;
+    /* Если меньше контейнера */
+    max-width: 800px;
+  }
+}
+@media (max-width: 991.98px) and (max-width: 1200px) {
+  .your-passport-big__content {
+    max-width: calc(300px + 500 * (100vw - 320px) / 880);
+  }
+}
+.your-passport-big__title-little:not(:last-child) {
+  margin-bottom: 10px;
+}
+@media (max-width: 991.98px) {
+  .your-passport-big__title-little {
+    text-align: center;
+  }
+}
+.your-passport-big__title-big:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 24px;
+}
+@media (max-width: 1200px) {
+  .your-passport-big__title-big:not(:last-child) {
+    margin-bottom: calc(40px + -16 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .your-passport-big__title-big {
+    text-align: center;
+  }
+}
+.your-passport-big__text {
+  /* Если меньше контейнера */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 140%;
+  color: var(--black-900);
+}
+@media (max-width: 1200px) {
+  .your-passport-big__text {
+    font-size: calc(16px + 4 * (100vw - 320px) / 880);
+  }
+}
+.your-passport-big__text p:not(:last-child),
+.your-passport-big__text ul:not(:last-child),
+.your-passport-big__text ol:not(:last-child) {
+  margin-bottom: 18px;
+}
+.your-passport-big__text ul,
+.your-passport-big__text ol {
+  padding-left: 18px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.your-passport-big__text ul li {
+  list-style-type: disc;
+}
+.your-passport-big__text ol {
+  list-style-type: decimal;
+}
+.your-passport-big__text a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .your-passport-big__text a:hover {
+    text-decoration: none;
+  }
+}
+
+.your-passport-list {
+  /* Если меньше контейнера */
+  column-gap: 90px;
+  row-gap: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1200px) {
+  .your-passport-list {
+    column-gap: calc(30px + 60 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .your-passport-list {
+    margin: 0 auto;
+    /* Если меньше контейнера */
+    max-width: 800px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 991.98px) and (max-width: 1200px) {
+  .your-passport-list {
+    max-width: calc(300px + 500 * (100vw - 320px) / 880);
+  }
+}
+.your-passport-list__title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 111.5384615385%;
+  color: var(--black-900);
+}
+.your-passport-list__title:not(:last-child) {
+  margin-bottom: 15px;
+}
+.your-passport-list__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 131.25%;
+  color: var(--black-900);
+}
+.your-passport-list__text p:not(:last-child),
+.your-passport-list__text ul:not(:last-child),
+.your-passport-list__text ol:not(:last-child) {
+  margin-bottom: 12px;
+}
+.your-passport-list__text ul,
+.your-passport-list__text ol {
+  padding-left: 18px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.your-passport-list__text ul li {
+  list-style-type: disc;
+}
+.your-passport-list__text ol {
+  list-style-type: decimal;
+}
+.your-passport-list__text a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .your-passport-list__text a:hover {
+    text-decoration: none;
+  }
+}
+
 .let-mentors:not(:last-child) {
   /* Если меньше контейнера */
   padding-bottom: 120px;
@@ -1017,6 +1538,34 @@ body._lock-scroll {
   line-height: 125%;
   text-align: left;
   color: var(--black-900);
+}
+.let-mentors-card__text p:not(:last-child),
+.let-mentors-card__text ul:not(:last-child),
+.let-mentors-card__text ol:not(:last-child) {
+  margin-bottom: 10px;
+}
+.let-mentors-card__text ul,
+.let-mentors-card__text ol {
+  padding-left: 18px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.let-mentors-card__text ul li {
+  list-style-type: disc;
+}
+.let-mentors-card__text ol {
+  list-style-type: decimal;
+}
+.let-mentors-card__text a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .let-mentors-card__text a:hover {
+    text-decoration: none;
+  }
 }
 @media (max-width: 551.98px) {
   .let-mentors-card__text {
