@@ -1979,6 +1979,123 @@ body._lock-scroll {
   }
 }
 
+.message__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.message__left {
+  max-width: 360px;
+}
+@media (max-width: 991.98px) {
+  .message__left {
+    margin: 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.message__title-little:not(:last-child) {
+  margin-bottom: 10px;
+}
+@media (max-width: 991.98px) {
+  .message__title-little {
+    text-align: center;
+  }
+}
+.message__title-big:not(:last-child) {
+  margin-bottom: 30px;
+}
+@media (max-width: 991.98px) {
+  .message__title-big {
+    text-align: center;
+  }
+}
+.message__text {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 155.5555555556%;
+}
+.message__text p:not(:last-child),
+.message__text ul:not(:last-child),
+.message__text ol:not(:last-child) {
+  margin-bottom: 10px;
+}
+.message__text ul,
+.message__text ol {
+  padding-left: 18px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.message__text ul li {
+  list-style-type: disc;
+}
+.message__text ol {
+  list-style-type: decimal;
+}
+.message__text a {
+  color: var(--green-400);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .message__text a:hover {
+    text-decoration: none;
+  }
+}
+.message__text:not(:last-child) {
+  margin-bottom: 30px;
+}
+@media (max-width: 991.98px) {
+  .message__text {
+    text-align: center;
+  }
+}
+@media (max-width: 991.98px) {
+  .message__button {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+.message__image {
+  /* Если меньше контейнера */
+  width: 705px;
+  /* Если меньше контейнера */
+  height: 457px;
+}
+@media (max-width: 1200px) {
+  .message__image {
+    width: calc(290px + 415 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 1200px) {
+  .message__image {
+    height: calc(170px + 287 * (100vw - 320px) / 880);
+  }
+}
+.message__image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+@media (min-width: 991.98px) {
+  .message__image {
+    /* Если меньше контейнера */
+    margin-right: 0px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1200px) {
+  .message__image {
+    margin-right: calc(-300px + 300 * (100vw - 320px) / 880);
+  }
+}
+@media (max-width: 991.98px) {
+  .message__image {
+    margin-bottom: 10px;
+  }
+}
+
 .footer {
   background: linear-gradient(180deg, rgba(255, 237, 211, 0.25) 0%, rgba(255, 148, 1, 0.08) 100%);
 }
