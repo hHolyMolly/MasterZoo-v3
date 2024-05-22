@@ -119,9 +119,13 @@ body._lock-scroll {
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     z-index: 9;
+    transition: left 0.5s ease 0s;
     background-color: var(--white);
+  }
+  .header__wrapper._active:before {
+    left: 0;
   }
 }
 .header__body {
@@ -164,15 +168,14 @@ body._lock-scroll {
     align-items: flex-start;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -100%;
     z-index: 8;
     overflow: auto;
-    transform: translateY(-100%);
-    transition: transform 0.5s ease 0s;
+    transition: left 0.5s ease 0s;
     background-color: var(--white);
   }
   .header__nav._active {
-    transform: translateY(0%);
+    left: 0%;
   }
 }
 @media (max-width: 479.98px) {
