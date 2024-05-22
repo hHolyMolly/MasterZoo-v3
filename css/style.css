@@ -98,7 +98,7 @@ body._lock-scroll {
 .header._scroll .header__body {
   padding-top: 16px;
 }
-@media (min-width: 479.98px) {
+@media (min-width: 479.98px) and (max-width: 991.98px) {
   .header._scroll .header__nav {
     padding-top: 77px;
   }
